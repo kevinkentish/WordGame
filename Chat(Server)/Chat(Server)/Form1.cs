@@ -28,19 +28,24 @@ namespace Chat_Server_
         {
             Socket socketReceive = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             int portReceive = 40000;
-            IPEndPoint iPEndPointReceive = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portReceive);
+            IPEndPoint iPEndPointReceive = new IPEndPoint(IPAddress.Any, portReceive);
             socketReceive.Bind(iPEndPointReceive);
             socketReceive.Listen(10);
+            String client = String.Empty;
             while (true)
             {
                 Socket temp = null;
                 try
                 {
+
                     temp = socketReceive.Accept();
                     byte[] messageReceivedByServer = new byte[100];
                     int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
-                    labelShow.Text += "\r\nClient: " + str;
+                    CheckIP.CheckIpAddress(str);
+                    
+                    labelShow.Text += "\r\nClient: "+ client + str;
+                    
                 }
                 catch (Exception ex)
                 {
@@ -56,28 +61,57 @@ namespace Chat_Server_
         //================================================================================================================================================
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            int portSend = 40001;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portSend);
-            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //int portSend = 40001;
+            //int portAkshit = 40002;
+
+            //IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+            //IPEndPoint iPEndPointSendAkshit = new IPEndPoint(IPAddress.Parse("10.232.20.228"), portAkshit);
+
+            //Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //Socket socketSendAkshit = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
             string messageTextBox = textBoxMessage.Text;
-            byte[] messageSentFromServer;
+            //byte[] messageSentFromServer;
             try
             {
-                socketSend.Connect(iPEndPointSend);
-                messageSentFromServer = Encoding.ASCII.GetBytes(messageTextBox);
-                socketSend.Send(messageSentFromServer, SocketFlags.None);
-                labelShow.Text += "\r\nServer: " + messageTextBox;
-                textBoxMessage.Text = null;
+                //socketSend.Connect(iPEndPointSend);
+                //socketSendAkshit.Connect(iPEndPointSendAkshit);
+
+                //messageSentFromServer = Encoding.ASCII.GetBytes(messageTextBox);
+
+                //socketSend.Send(messageSentFromServer, SocketFlags.None);
+                //socketSendAkshit.Send(messageSentFromServer, SocketFlags.None);
+
+                //labelShow.Text += "\r\nServer: " + messageTextBox;
+                //textBoxMessage.Text = null;
+                String catchedMsg = string.Empty;
+                
+                for (int i = 0; i < 2; i++)
+                {
+                    Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, messageTextBox, socketSend);
+                    Console.WriteLine(catchedMsg);
+                    
+                    textBoxMessage.Text = null;
+                    socketSend.Close();
+                }
+                labelShow.Text += "\r\nServer: " + catchedMsg;
+                //String catchedMsg = ServerSend.SendToClient(Globals.players[0].Ip, messageTextBox);
+                //ServerSend.SendToClient(Globals.players[1].Ip, messageTextBox);
+
+                //labelShow.Text += "\r\nServer: " + catchedMsg;
+                //textBoxMessage.Text = null;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.HelpLink + "\n" + ex.InnerException
                         + "\n" + ex.Source + "\n" + ex.TargetSite);
             }
-            finally
-            {
-                socketSend.Close();
-            }
+            //finally
+            //{
+                //socketSend.Close();
+                //socketSendAkshit.Close();
+            //}
         }
         //============================================================Receive================================================================================
     }
