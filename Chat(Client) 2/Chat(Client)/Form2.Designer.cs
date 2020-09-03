@@ -52,6 +52,8 @@ namespace Chat_Client_
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.AliceBlue;
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button1.Location = new System.Drawing.Point(45, 70);
@@ -59,11 +61,13 @@ namespace Chat_Client_
             this.button1.Size = new System.Drawing.Size(75, 39);
             this.button1.TabIndex = 0;
             this.button1.Text = "?";
-            this.button1.Enabled = false;
-            this.button1.BackColor = Color.AliceBlue;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.AliceBlue;
+            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button2.Location = new System.Drawing.Point(126, 70);
@@ -71,11 +75,13 @@ namespace Chat_Client_
             this.button2.Size = new System.Drawing.Size(75, 39);
             this.button2.TabIndex = 1;
             this.button2.Text = "?";
-            this.button2.Enabled = false;
-            this.button2.BackColor = Color.AliceBlue;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.AliceBlue;
+            this.button3.Enabled = false;
             this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button3.Location = new System.Drawing.Point(207, 70);
@@ -83,11 +89,13 @@ namespace Chat_Client_
             this.button3.Size = new System.Drawing.Size(75, 39);
             this.button3.TabIndex = 2;
             this.button3.Text = "?";
-            this.button3.Enabled = false;
-            this.button3.BackColor = Color.AliceBlue;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.AliceBlue;
+            this.button4.Enabled = false;
             this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button4.Location = new System.Drawing.Point(288, 70);
@@ -95,11 +103,13 @@ namespace Chat_Client_
             this.button4.Size = new System.Drawing.Size(75, 39);
             this.button4.TabIndex = 3;
             this.button4.Text = "?";
-            this.button4.Enabled = false;
-            this.button4.BackColor = Color.AliceBlue;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.AliceBlue;
+            this.button5.Enabled = false;
             this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button5.Location = new System.Drawing.Point(369, 70);
@@ -107,11 +117,13 @@ namespace Chat_Client_
             this.button5.Size = new System.Drawing.Size(75, 39);
             this.button5.TabIndex = 4;
             this.button5.Text = "?";
-            this.button5.Enabled = false;
-            this.button5.BackColor = Color.AliceBlue;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.AliceBlue;
+            this.button6.Enabled = false;
             this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button6.Location = new System.Drawing.Point(450, 70);
@@ -119,11 +131,13 @@ namespace Chat_Client_
             this.button6.Size = new System.Drawing.Size(75, 39);
             this.button6.TabIndex = 5;
             this.button6.Text = "?";
-            this.button6.Enabled = false;
-            this.button6.BackColor = Color.AliceBlue;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.AliceBlue;
+            this.button7.Enabled = false;
             this.button7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button7.Location = new System.Drawing.Point(531, 70);
@@ -131,11 +145,13 @@ namespace Chat_Client_
             this.button7.Size = new System.Drawing.Size(75, 39);
             this.button7.TabIndex = 6;
             this.button7.Text = "?";
-            this.button7.Enabled = false;
-            this.button7.BackColor = Color.AliceBlue;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.AliceBlue;
+            this.button8.Enabled = false;
             this.button8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button8.Location = new System.Drawing.Point(612, 70);
@@ -143,11 +159,13 @@ namespace Chat_Client_
             this.button8.Size = new System.Drawing.Size(75, 39);
             this.button8.TabIndex = 7;
             this.button8.Text = "?";
-            this.button8.Enabled = false;
-            this.button8.BackColor = Color.AliceBlue;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.AliceBlue;
+            this.button9.Enabled = false;
             this.button9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button9.Location = new System.Drawing.Point(693, 70);
@@ -155,11 +173,13 @@ namespace Chat_Client_
             this.button9.Size = new System.Drawing.Size(75, 39);
             this.button9.TabIndex = 8;
             this.button9.Text = "?";
-            this.button9.Enabled = false;
-            this.button9.BackColor = Color.AliceBlue;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.AliceBlue;
+            this.button10.Enabled = false;
             this.button10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.MenuText;
             this.button10.Location = new System.Drawing.Point(774, 70);
@@ -167,9 +187,9 @@ namespace Chat_Client_
             this.button10.Size = new System.Drawing.Size(75, 39);
             this.button10.TabIndex = 9;
             this.button10.Text = "?";
-            this.button10.Enabled = false;
-            this.button10.BackColor = Color.AliceBlue;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.TextChanged += new System.EventHandler(this.button10_TextChanged);
+            this.button10.Click += new System.EventHandler(this.MyButtonClick);
             // 
             // Consonant
             // 

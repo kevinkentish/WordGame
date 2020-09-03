@@ -148,5 +148,11 @@ namespace Chat_Client_
             Consonant.Enabled = false;
             Vowel.Enabled = false;
         }
+        void MyButtonClick(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            word.Text += button.Text;
+            button.Enabled = false;
+        }
     }
 }
