@@ -154,5 +154,33 @@ namespace Chat_Client_
             word.Text += button.Text;
             button.Enabled = false;
         }
+
+        private void Submit_Click(object sender, EventArgs e)
+        {
+            int portSend = 40000;
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("192.168.100.109"), portSend);
+            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            string messageTextBox = word.Text; ;
+            byte[] messageSentFromClient;
+            try
+            {
+                string hostName = Dns.GetHostName(); // Retrive the Name of HOST
+                // Get the IP
+                string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
+                socketSend.Connect(iPEndPointSend);
+                messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
+                socketSend.Send(messageSentFromClient, SocketFlags.None);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.HelpLink + "\n" + ex.InnerException
+                        + "\n" + ex.Source + "\n" + ex.TargetSite);
+            }
+            finally
+            {
+                socketSend.Close();
+            }
+        }
     }
 }

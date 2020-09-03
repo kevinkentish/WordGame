@@ -219,6 +219,7 @@ namespace Chat_Client_
             // 
             this.word.Location = new System.Drawing.Point(171, 217);
             this.word.Name = "word";
+            this.word.ReadOnly = true;
             this.word.Size = new System.Drawing.Size(192, 20);
             this.word.TabIndex = 12;
             // 
@@ -230,6 +231,7 @@ namespace Chat_Client_
             this.Submit.TabIndex = 13;
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
             // dataGridView1
             // 

@@ -10,6 +10,8 @@ namespace Chat_Server_
     {
         public static List<IpAdress> players = new List<IpAdress>();
         public static string listOfLetters = "";
+        public static int player1Score = 0;
+        public static int player2Score = 0;
     }
     
 }

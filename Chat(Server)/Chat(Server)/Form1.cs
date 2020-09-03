@@ -82,6 +82,13 @@ namespace Chat_Server_
                     {
                         SendGeneratedStringOfLetters();
                     }
+                    if (count >= 13)
+                    {
+                        Boolean found = CheckWord.CheckExistingWord(str);
+                        Console.WriteLine(found.ToString());
+                        Console.WriteLine(Globals.player1Score.ToString());
+                        Console.WriteLine(Globals.player2Score.ToString());
+                    }
                     
                 }
                 catch (Exception ex)
