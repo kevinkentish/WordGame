@@ -9,5 +9,7 @@ namespace Chat_Server_
     class Globals
     {
         public static List<IpAdress> players = new List<IpAdress>();
+        public static string listOfLetters = "";
     }
+    
 }

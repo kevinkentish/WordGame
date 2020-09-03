@@ -15,6 +15,31 @@ namespace Chat_Server_
 {
     public partial class FormServer : Form
     {
+        public static int count = 0;
+        public static void GameStart()
+        {
+            if (Globals.players.Count == 2)
+            {
+                
+                for (int i = 0; i < 2; i++)
+                {
+                    Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    ServerSend.SendToClient(Globals.players[i].Ip, "Game Start!", socketSend);
+                    socketSend.Close();
+                }
+
+            }
+        }
+
+        public static void SendGeneratedStringOfLetters()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.listOfLetters + "#"), socketSend);
+                socketSend.Close();
+            }
+        }
         public FormServer()
         {
             InitializeComponent();
@@ -37,14 +62,26 @@ namespace Chat_Server_
                 Socket temp = null;
                 try
                 {
-
                     temp = socketReceive.Accept();
                     byte[] messageReceivedByServer = new byte[100];
                     int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
                     CheckIP.CheckIpAddress(str);
-                    
+
                     labelShow.Text += "\r\nClient: "+ client + str;
+                    if (Globals.players.Count < 2)
+                    {
+                        Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        ServerSend.SendToClient(Globals.players[0].Ip, "Wait for the other player", socketSend);
+                    }
+                    if (count == 2)
+                    {
+                        GameStart();
+                    }
+                    if (count > 2 && count < 13)
+                    {
+                        SendGeneratedStringOfLetters();
+                    }
                     
                 }
                 catch (Exception ex)
@@ -88,7 +125,7 @@ namespace Chat_Server_
                 
                 for (int i = 0; i < 2; i++)
                 {
-                    Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);                  
                     catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, messageTextBox, socketSend);
                     Console.WriteLine(catchedMsg);
                     

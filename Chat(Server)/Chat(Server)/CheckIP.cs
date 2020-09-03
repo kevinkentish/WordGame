@@ -12,7 +12,6 @@ namespace Chat_Server_
     {             
         public static void CheckIpAddress(string stringReceived)
         {
-            
             int pos = stringReceived.IndexOf("$");
             int endPos = stringReceived.IndexOf("#");
             string ipadd = "";
@@ -20,23 +19,53 @@ namespace Chat_Server_
             for (int i = pos + 1; i < endPos; i++)
             {
                 ipadd += stringReceived.ElementAt(i);
+                
             }
-            for(int j=0; j < pos; j++)
+            for (int j=0; j < pos; j++)
             {
                 name += stringReceived.ElementAt(j);
             }
-            if (ipadd.Length != 0)
+            //Console.WriteLine(Globals.players[0].Ip);
+            if (name == "vowel" || name == "consonant")
             {
-                IpAdress playerip = new IpAdress();
-                playerip.Ip = ipadd;
-                playerip.Name = name;
-                Globals.players.Add(playerip);
-                Console.WriteLine(playerip.Ip);
-                for(int i=0; i < Globals.players.Count; i++)
+                Globals.listOfLetters += GenerateLetter.GenerateLetters(name);
+                Console.WriteLine(Globals.listOfLetters);
+            }
+
+            if (Globals.players.Count < 2 && ipadd.Length != 0)
+            {
+               
+                if (Globals.players.Count == 0)
                 {
-                    Console.WriteLine(Globals.players[i].Ip + Globals.players[i].Name);
+                    AddIp(ipadd, name);
                 }
-            }  
+                else
+                {
+                    if (ipadd != Globals.players[0].Ip )
+                    {
+                        AddIp(ipadd, name);
+                    }
+                }
+                
+            }
+            if (Globals.players.Count < 3){
+                FormServer.count++;
+            }
+            
+            for (int i = 0; i < Globals.players.Count; i++)
+            {
+                Console.WriteLine("Ip in list: "+Globals.players[i].Ip + Globals.players[i].Name);
+            }
+            Console.WriteLine();
+        }
+
+        public static void AddIp(string ip, string name)
+        {
+            IpAdress playerip = new IpAdress();
+            playerip.Ip = ip;
+            playerip.Name = name;
+            Globals.players.Add(playerip);
+            Console.WriteLine(playerip.Ip);
         }
     }
 }
