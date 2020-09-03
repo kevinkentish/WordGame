@@ -27,7 +27,7 @@ namespace Chat_Client_
         private void Consonant_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("192.168.100.109"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "consonant";
             byte[] messageSentFromClient;
@@ -57,7 +57,7 @@ namespace Chat_Client_
         private void Vowel_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("192.168.100.109"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "vowel";
             byte[] messageSentFromClient;
@@ -136,6 +136,17 @@ namespace Chat_Client_
                     temp.Close();
                 }
             }
+        }
+
+        private void button10_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Button s in Controls.OfType<Button>())
+            {
+                s.Enabled = true;
+                s.UseVisualStyleBackColor = true;
+            }
+            Consonant.Enabled = false;
+            Vowel.Enabled = false;
         }
     }
 }
