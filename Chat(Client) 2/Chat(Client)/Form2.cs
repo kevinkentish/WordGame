@@ -27,7 +27,7 @@ namespace Chat_Client_
         private void Consonant_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("192.168.100.109"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "consonant";
             byte[] messageSentFromClient;
@@ -57,7 +57,7 @@ namespace Chat_Client_
         private void Vowel_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("192.168.100.109"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "vowel";
             byte[] messageSentFromClient;
@@ -91,6 +91,9 @@ namespace Chat_Client_
             string msg = "??????????";
             string temporaryString = "";
             char[] ch = msg.ToCharArray();
+            string player1Score="";
+            string player2Score = "";
+
             while (true)
             {
                 Socket temp = null;
@@ -100,29 +103,53 @@ namespace Chat_Client_
                     byte[] messageReceivedByServer = new byte[100];
                     int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
+                    char[] tempScore1 = new char[10];
+                    char[] tempScore2 = new char[10];
+
                     Console.WriteLine(str);
 
                     int endPos = str.IndexOf("#");
+                    
                     Console.WriteLine(str);
                     
-
-                    for (int i = 0; i < endPos; i++)
+                    if (str.Contains("$"))
                     {
-                        ch[i] = str.ElementAt(i);
-                        
+                        int halfPos = str.IndexOf("$");
+                        for (int i = 0; i < halfPos; i++)
+                        {
+                            tempScore1[i] = str.ElementAt(i);
+                            
+                        }
+                        player1Score = new String(tempScore1);
+                        for (int j = halfPos+1; j < endPos; j++)
+                        {
+                            int i = 0;
+                            tempScore2[i] = str.ElementAt(j);
+                            i++;
+                        }
+                        player2Score = new String(tempScore2);
                     }
-                    temporaryString = new String(ch);
-                    button1.Text = temporaryString.ElementAt(0).ToString();
-                    button2.Text = temporaryString.ElementAt(1).ToString();
-                    button3.Text = temporaryString.ElementAt(2).ToString();
-                    button4.Text = temporaryString.ElementAt(3).ToString();
-                    button5.Text = temporaryString.ElementAt(4).ToString();
-                    button6.Text = temporaryString.ElementAt(5).ToString();
-                    button7.Text = temporaryString.ElementAt(6).ToString();
-                    button8.Text = temporaryString.ElementAt(7).ToString();
-                    button9.Text = temporaryString.ElementAt(8).ToString();
-                    button10.Text = temporaryString.ElementAt(9).ToString();
-                    Console.WriteLine(msg);
+                    else
+                    {
+                        for (int i = 0; i < endPos; i++)
+                        {
+                            ch[i] = str.ElementAt(i);
+
+                        }
+                        temporaryString = new String(ch);
+                        button1.Text = temporaryString.ElementAt(0).ToString();
+                        button2.Text = temporaryString.ElementAt(1).ToString();
+                        button3.Text = temporaryString.ElementAt(2).ToString();
+                        button4.Text = temporaryString.ElementAt(3).ToString();
+                        button5.Text = temporaryString.ElementAt(4).ToString();
+                        button6.Text = temporaryString.ElementAt(5).ToString();
+                        button7.Text = temporaryString.ElementAt(6).ToString();
+                        button8.Text = temporaryString.ElementAt(7).ToString();
+                        button9.Text = temporaryString.ElementAt(8).ToString();
+                        button10.Text = temporaryString.ElementAt(9).ToString();
+                        Console.WriteLine(msg);
+                    }
+                    
                     //labelShow.Text += "\r\nServer: " + str;
 
                 }
@@ -134,6 +161,8 @@ namespace Chat_Client_
                 finally
                 {
                     temp.Close();
+                    Player1ScoreLabel.Text = player1Score;
+                    Player2ScoreLabel.Text = player2Score;
                 }
             }
         }
@@ -158,7 +187,7 @@ namespace Chat_Client_
         private void Submit_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("192.168.100.109"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = word.Text; ;
             byte[] messageSentFromClient;

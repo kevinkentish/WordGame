@@ -47,6 +47,10 @@ namespace Chat_Client_
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Player1ScoreLabel = new System.Windows.Forms.Label();
+            this.Player2ScoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,11 +268,49 @@ namespace Chat_Client_
             this.label2.TabIndex = 16;
             this.label2.Text = "Des Chiffres et des Lettres";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(571, 217);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Player 1 score";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(652, 217);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Player 2score";
+            // 
+            // Player1ScoreLabel
+            // 
+            this.Player1ScoreLabel.AutoSize = true;
+            this.Player1ScoreLabel.Location = new System.Drawing.Point(606, 259);
+            this.Player1ScoreLabel.Name = "Player1ScoreLabel";
+            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.Player1ScoreLabel.TabIndex = 19;
+            // 
+            // Player2ScoreLabel
+            // 
+            this.Player2ScoreLabel.AutoSize = true;
+            this.Player2ScoreLabel.Location = new System.Drawing.Point(687, 259);
+            this.Player2ScoreLabel.Name = "Player2ScoreLabel";
+            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.Player2ScoreLabel.TabIndex = 20;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.Player2ScoreLabel);
+            this.Controls.Add(this.Player1ScoreLabel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Submit);
@@ -313,5 +355,9 @@ namespace Chat_Client_
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Player1ScoreLabel;
+        private System.Windows.Forms.Label Player2ScoreLabel;
     }
 }

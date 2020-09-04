@@ -40,6 +40,16 @@ namespace Chat_Server_
                 socketSend.Close();
             }
         }
+
+        public static void SendScores()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.player1Score + "$" + Globals.player2Score+"#"), socketSend);
+                socketSend.Close();
+            }
+        }
         public FormServer()
         {
             InitializeComponent();
@@ -84,10 +94,11 @@ namespace Chat_Server_
                     }
                     if (count >= 13)
                     {
-                        Boolean found = CheckWord.CheckExistingWord(str);
+                        bool found = CheckWord.CheckExistingWord(str);
                         Console.WriteLine(found.ToString());
                         Console.WriteLine(Globals.player1Score.ToString());
                         Console.WriteLine(Globals.player2Score.ToString());
+                        SendScores();
                     }
                     
                 }
