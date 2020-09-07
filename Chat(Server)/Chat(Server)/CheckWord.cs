@@ -8,7 +8,7 @@ namespace Chat_Server_
 {
     class CheckWord
     {
-        public static Boolean CheckExistingWord(String input)
+        public static string CheckExistingWord(String input)
         {
             int pos = input.IndexOf("$");
             string word = "";
@@ -28,7 +28,6 @@ namespace Chat_Server_
             Console.WriteLine(ipadd);
             Console.WriteLine(word);
             List<string> vwords = LoadWords.LoadWordsList();
-            Boolean found = false;
             Console.WriteLine(Globals.players[0].Ip);
             foreach (string words in vwords)
             {
@@ -44,10 +43,10 @@ namespace Chat_Server_
                         Globals.player2Score += word.Length;
                         Console.WriteLine(Globals.player2Score);
                     }
-                    return found = true;
+                    return "true";
                 }
             }
-            return found;
+            return ("false"+ipadd).ToString();
         }
     }
 }

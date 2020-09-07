@@ -41,12 +41,12 @@ namespace Chat_Server_
             }
         }
 
-        public static void SendScores(bool found)
+        public static void SendScores()
         {
             for (int i = 0; i < 2; i++)
             {
                 Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.player1Score + "$" + Globals.player2Score+"#" + found.ToString()), socketSend);
+                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.player1Score + "$" + Globals.player2Score+"#"), socketSend);
                 socketSend.Close();
             }
         }
@@ -92,13 +92,25 @@ namespace Chat_Server_
                     {
                         SendGeneratedStringOfLetters();
                     }
-                    if (count >= 13)
+                    if (count > 12 && count<15 )
                     {
-                        bool found = CheckWord.CheckExistingWord(str);
+                        string found = CheckWord.CheckExistingWord(str);
+                        //contains false send word does not exist 
                         Console.WriteLine(found.ToString());
+                        if (found.Contains("false"))
+                        {
+                            int endPos = found.IndexOf("e");
+                            string userIP = "";
+                            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                            for (int i = endPos + 1; i < found.Length; i++)
+                            {
+                                userIP += found.ElementAt(i);   
+                            }
+                            ServerSend.SendToClient(userIP, "!Invalid!", socketSend);
+                        }
                         if(count == 14)
                         {
-                            SendScores(found);
+                            SendScores();
                         }
                         
                     }

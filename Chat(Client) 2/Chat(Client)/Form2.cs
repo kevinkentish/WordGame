@@ -149,14 +149,21 @@ namespace Chat_Client_
                             //{
                             //    tempScore2[j - (halfPos + 1)] = str.ElementAt(j);
                             //}
-                            if (new String(tempScore2).Equals(GlobalClient.player2score))
-                            {
-                                Console.WriteLine("<<<<<<<<<<<in retn dan if la>>>>>>>>>>>>");
-                                string message = "Word does not exist";
-                                MessageBox.Show(message);
-                            }
+                            //if (new String(tempScore2).Equals(GlobalClient.player2score))
+                            //{
+                            //    Console.WriteLine("<<<<<<<<<<<in retn dan if la>>>>>>>>>>>>");
+                            //    string message = "Word does not exist";
+                            //    MessageBox.Show(message);
+                            //}
                             GlobalClient.player2score = new String(tempScore2);
                             
+                        }
+                        else if (str.Contains("!Invalid!"))
+                        {
+                            Console.WriteLine("<<<<<<<<<<<in retn dan if la>>>>>>>>>>>>");
+                            string message = "Word does not exist";
+                            MessageBox.Show(message);
+
                         }
                         else if (str.Contains("!Reset!"))
                         {
@@ -168,6 +175,7 @@ namespace Chat_Client_
                             //this.Dispose(true);
 
                         }
+
                         else
                         {
                             for (int i = 0; i < endPos; i++)
