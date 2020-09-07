@@ -179,13 +179,7 @@ namespace Chat_Client_
                         }
                         else if (str.Contains("!Reset!"))
                         {
-                            //socketReceive.Close();
-                            Console.WriteLine("Client: Socket Closed");
                             control = 1;
-                            Console.WriteLine("Client: cvbnm,s");
-                            Console.WriteLine("Client: New Form");
-                            //this.Dispose(true);
-
                         }
 
                         else
@@ -208,34 +202,37 @@ namespace Chat_Client_
                             Console.WriteLine("Client MSG: " + msg);
                         }
 
-                    }
-                    //labelShow.Text += "\r\nServer: " + str;
-                            
+                    }        
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.HelpLink + "\n" + ex.InnerException
                             + "\n" + ex.Source + "\n" + ex.TargetSite);
-                }
-                finally
-                {
-                   
-                    
-                }
-
-                
+                } 
             }
             socketReceive.Close();
             control = 0;
             this.Dispose(true);
-            Form2 frm = new Form2();
-            frm.Player1ScoreLabel.Text = GlobalClient.player1score;
-            frm.Player2ScoreLabel.Text = GlobalClient.player2score;
-            frm.ShowDialog();
+            
+            if (GlobalClient.roundPlayed < 3)
+            {
+                GlobalClient.roundPlayed++;
+                Console.WriteLine("Global count: " + GlobalClient.roundPlayed);
+                Form2 frm = new Form2();
+                frm.Player1ScoreLabel.Text = GlobalClient.player1score;
+                frm.Player2ScoreLabel.Text = GlobalClient.player2score;
+                frm.ShowDialog();
+                
+                
+            }
+            else
+            {
+               
+                Form frm = new Form();
+                frm.ShowDialog();
+            }
             
             this.Close();
-            
-            
         }
 
         private void button10_TextChanged(object sender, EventArgs e)

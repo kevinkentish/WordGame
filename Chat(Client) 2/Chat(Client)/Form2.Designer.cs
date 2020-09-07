@@ -334,6 +334,7 @@ namespace Chat_Client_
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.CenterToScreen();
             this.Controls.Add(this.btnNewRound);
             this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);
