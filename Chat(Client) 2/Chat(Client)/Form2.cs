@@ -19,7 +19,11 @@ namespace Chat_Client_
         public Form2()
         {
             InitializeComponent();
-
+            if (GlobalClient.player1)
+            {
+                Vowel.Enabled = true;
+                Consonant.Enabled = true;
+            }
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();
@@ -111,7 +115,7 @@ namespace Chat_Client_
                 try
                 {
 
-                    
+
                     if (control == 0)
                     {
                         Console.WriteLine("Client zis avant temp socketAccept <COUNT>: " + control);
@@ -124,10 +128,18 @@ namespace Chat_Client_
                         char[] tempScore1 = new char[10];
                         char[] tempScore2 = new char[10];
 
-                        Console.WriteLine(str);
-
+                        //Console.WriteLine(str);
+                        if (str.Contains("!play!"))
+                        {
+                            Consonant.Enabled = true;
+                            Vowel.Enabled = true;
+                        }
+                        if (str.Contains("!wait!"))
+                        {
+                            Consonant.Enabled = false;
+                            Vowel.Enabled = false;
+                        }
                         int endPos = str.IndexOf("#");
-
                         Console.WriteLine("Client String: " + str);
                         if (str.Contains("$"))
                         {
@@ -270,6 +282,8 @@ namespace Chat_Client_
             finally
             {
                 socketSend.Close();
+                Submit.Enabled = false;
+                TextClear.Enabled = false;
             }
         }
 

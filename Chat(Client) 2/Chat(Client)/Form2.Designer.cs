@@ -208,6 +208,7 @@ namespace Chat_Client_
             this.Consonant.Text = "Consonant";
             this.Consonant.UseVisualStyleBackColor = true;
             this.Consonant.Click += new System.EventHandler(this.Consonant_Click);
+            this.Consonant.Enabled = false;
             // 
             // Vowel
             // 
@@ -220,6 +221,7 @@ namespace Chat_Client_
             this.Vowel.Text = "Vowel";
             this.Vowel.UseVisualStyleBackColor = true;
             this.Vowel.Click += new System.EventHandler(this.Vowel_Click);
+            this.Vowel.Enabled = false;
             // 
             // word
             // 

@@ -13,5 +13,8 @@ namespace Chat_Client_
 
         public static string player1Name= "";
         public static string player2Name = "";
+
+
+        public static bool player1 = false;
     }
 }

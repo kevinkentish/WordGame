@@ -41,6 +41,12 @@ namespace Chat_Client_
                     int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
                     labelShow.Text += "\r\nServer: " + str;
+
+                    if(str.Contains("Wait for the other player"))
+                    {
+                        GlobalClient.player1 = true;
+                    }
+                    labelShow.Text += GlobalClient.player1;
                     int pos = 0;
                     int endPos = str.IndexOf("!");
                     int endPosName1 = str.IndexOf("@");

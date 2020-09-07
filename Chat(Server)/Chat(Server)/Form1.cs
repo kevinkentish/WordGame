@@ -33,11 +33,39 @@ namespace Chat_Server_
 
         public static void SendGeneratedStringOfLetters()
         {
+            String playflag = "";
+            int play = count % 2;
+            int j = 0;
+            
             for (int i = 0; i < 2; i++)
             {
+                playflag = "!wait!";
                 Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.listOfLetters + "#"), socketSend);
-                socketSend.Close();
+                if (i==0)
+                {
+                    if (play == 1)
+                    { 
+                        playflag = "!play!";
+                        ServerSend.SendToClient(Globals.players[i].Ip, (Globals.listOfLetters + "#"+ playflag), socketSend);
+                    } else
+                    {
+                        ServerSend.SendToClient(Globals.players[i].Ip, (Globals.listOfLetters + "#" + playflag), socketSend);
+                    }
+                   
+                }
+                if (i == 1)
+                {
+                    if (play == 0)
+                    {
+                        playflag = "!play!";
+                        ServerSend.SendToClient(Globals.players[i].Ip, (Globals.listOfLetters + "#" + playflag), socketSend);
+                    }
+                    else
+                    {
+                        ServerSend.SendToClient(Globals.players[i].Ip, (Globals.listOfLetters + "#" + playflag), socketSend);
+                    }
+                }
+             socketSend.Close();
             }
         }
 
