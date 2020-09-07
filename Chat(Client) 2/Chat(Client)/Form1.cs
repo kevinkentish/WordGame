@@ -43,6 +43,8 @@ namespace Chat_Client_
                     labelShow.Text += "\r\nServer: " + str;
                     int pos = 0;
                     int endPos = str.IndexOf("!");
+                    int endPosName1 = str.IndexOf("@");
+                    int endPosName2 = str.IndexOf("%");
                     string msg = "";
                     Console.WriteLine(str);
 
@@ -51,13 +53,27 @@ namespace Chat_Client_
                     {
                         msg += str.ElementAt(i);
                     }
+
+                    for (int j = endPos+1; j < endPosName1; j++)
+                    {
+                        GlobalClient.player1Name += str.ElementAt(j);
+                    }
+
+                    for (int k = endPosName1+1; k < endPosName2; k++)
+                    {
+                        GlobalClient.player2Name += str.ElementAt(k);
+                    }
                     Console.WriteLine(msg);
-                    if (msg.Equals("Game Start!"))
+                    Console.WriteLine(GlobalClient.player1Name);
+                    Console.WriteLine(GlobalClient.player2Name);
+                    if (msg.Contains("Game Start!"))
                     {
                         socketReceive.Close();
                         temp.Close();
                         
-                        this.Close();
+                        this.Dispose(true);
+                        Form2 frm = new Form2();
+                        frm.ShowDialog();
                         break;
                     }
                 }

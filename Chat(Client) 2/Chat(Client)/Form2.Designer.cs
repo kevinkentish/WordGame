@@ -47,12 +47,12 @@ namespace Chat_Client_
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Player1ScoreLabel = new System.Windows.Forms.Label();
-            this.Player2ScoreLabel = new System.Windows.Forms.Label();
             this.TextClear = new System.Windows.Forms.Button();
             this.btnNewRound = new System.Windows.Forms.Button();
+            this.Player1ScoreLabel = new System.Windows.Forms.Label();
+            this.Player2ScoreLabel = new System.Windows.Forms.Label();
+            this.Player2Name = new System.Windows.Forms.Label();
+            this.Player1Name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -271,40 +271,6 @@ namespace Chat_Client_
             this.label2.TabIndex = 16;
             this.label2.Text = "Des Chiffres et des Lettres";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(571, 217);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Player 1 score";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(652, 217);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Player 2score";
-            // 
-            // Player1ScoreLabel
-            // 
-            this.Player1ScoreLabel.AutoSize = true;
-            this.Player1ScoreLabel.Location = new System.Drawing.Point(606, 259);
-            this.Player1ScoreLabel.Name = "Player1ScoreLabel";
-            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 13);
-            this.Player1ScoreLabel.TabIndex = 19;
-            // 
-            // Player2ScoreLabel
-            // 
-            this.Player2ScoreLabel.AutoSize = true;
-            this.Player2ScoreLabel.Location = new System.Drawing.Point(687, 259);
-            this.Player2ScoreLabel.Name = "Player2ScoreLabel";
-            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 13);
-            this.Player2ScoreLabel.TabIndex = 20;
-            // 
             // TextClear
             // 
             this.TextClear.Location = new System.Drawing.Point(171, 254);
@@ -317,14 +283,49 @@ namespace Chat_Client_
             // 
             // btnNewRound
             // 
+            this.btnNewRound.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnNewRound.Enabled = false;
             this.btnNewRound.Location = new System.Drawing.Point(794, 406);
             this.btnNewRound.Name = "btnNewRound";
             this.btnNewRound.Size = new System.Drawing.Size(75, 23);
             this.btnNewRound.TabIndex = 22;
             this.btnNewRound.Text = "New Round";
+            this.btnNewRound.UseVisualStyleBackColor = false;
             this.btnNewRound.Click += new System.EventHandler(this.btnNewRound_Click);
-            this.btnNewRound.Enabled = false;
-            this.btnNewRound.BackColor = System.Drawing.Color.AliceBlue;
+            // 
+            // Player1ScoreLabel
+            // 
+            this.Player1ScoreLabel.AutoSize = true;
+            this.Player1ScoreLabel.Location = new System.Drawing.Point(571, 264);
+            this.Player1ScoreLabel.Name = "Player1ScoreLabel";
+            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.Player1ScoreLabel.TabIndex = 19;
+            // 
+            // Player2ScoreLabel
+            // 
+            this.Player2ScoreLabel.AutoSize = true;
+            this.Player2ScoreLabel.Location = new System.Drawing.Point(652, 264);
+            this.Player2ScoreLabel.Name = "Player2ScoreLabel";
+            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.Player2ScoreLabel.TabIndex = 20;
+            // 
+            // Player2Name
+            // 
+            this.Player2Name.AutoSize = true;
+            this.Player2Name.Location = new System.Drawing.Point(652, 217);
+            this.Player2Name.Name = "Player2Name";
+            this.Player2Name.Size = new System.Drawing.Size(0, 13);
+            this.Player2Name.TabIndex = 18;
+            this.Player2Name.Text = GlobalClient.player2Name;
+            // 
+            // Player1Name
+            // 
+            this.Player1Name.AutoSize = true;
+            this.Player1Name.Location = new System.Drawing.Point(571, 217);
+            this.Player1Name.Name = "Player1Name";
+            this.Player1Name.Size = new System.Drawing.Size(0, 13);
+            this.Player1Name.TabIndex = 17;
+            this.Player1Name.Text = GlobalClient.player1Name;
             // 
             // Form2
             // 
@@ -335,8 +336,8 @@ namespace Chat_Client_
             this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);
             this.Controls.Add(this.Player1ScoreLabel);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Player2Name);
+            this.Controls.Add(this.Player1Name);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Submit);
@@ -381,11 +382,11 @@ namespace Chat_Client_
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label Player1ScoreLabel;
-        private System.Windows.Forms.Label Player2ScoreLabel;
         private System.Windows.Forms.Button TextClear;
         private System.Windows.Forms.Button btnNewRound;
+        private System.Windows.Forms.Label Player1ScoreLabel;
+        private System.Windows.Forms.Label Player2ScoreLabel;
+        private System.Windows.Forms.Label Player2Name;
+        private System.Windows.Forms.Label Player1Name;
     }
 }

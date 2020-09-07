@@ -24,7 +24,7 @@ namespace Chat_Server_
                 for (int i = 0; i < 2; i++)
                 {
                     Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    ServerSend.SendToClient(Globals.players[i].Ip, "Game Start!", socketSend);
+                    ServerSend.SendToClient(Globals.players[i].Ip, "Game Start!"+Globals.players[0].Name + "@"+Globals.players[1].Name + "%", socketSend);
                     socketSend.Close();
                 }
 
@@ -41,12 +41,12 @@ namespace Chat_Server_
             }
         }
 
-        public static void SendScores()
+        public static void SendScores(bool found)
         {
             for (int i = 0; i < 2; i++)
             {
                 Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.player1Score + "$" + Globals.player2Score+"#"), socketSend);
+                ServerSend.SendToClient(Globals.players[i].Ip, (Globals.player1Score + "$" + Globals.player2Score+"#" + found.ToString()), socketSend);
                 socketSend.Close();
             }
         }
@@ -96,9 +96,11 @@ namespace Chat_Server_
                     {
                         bool found = CheckWord.CheckExistingWord(str);
                         Console.WriteLine(found.ToString());
-                        Console.WriteLine(Globals.player1Score.ToString());
-                        Console.WriteLine(Globals.player2Score.ToString());
-                        SendScores();
+                        if(count == 14)
+                        {
+                            SendScores(found);
+                        }
+                        
                     }
                     if (str.Contains("!Reset!"))
                     {

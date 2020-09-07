@@ -34,16 +34,15 @@ namespace Chat_Server_
             {
                 if (word.ToLower() == words.ToLower())
                 {
-                    Console.WriteLine("hun");
                     if(ipadd.Equals(Globals.players[0].Ip))
                     {
-                        Console.WriteLine("p1");
                         Globals.player1Score += word.Length;
+                        Console.WriteLine(Globals.player1Score);
                     }
-                    else if (ipadd.Equals(Globals.players[1].Ip))
+                    if (ipadd.Equals(Globals.players[1].Ip))
                     {
-                        Console.WriteLine("p2");
                         Globals.player2Score += word.Length;
+                        Console.WriteLine(Globals.player2Score);
                     }
                     return found = true;
                 }

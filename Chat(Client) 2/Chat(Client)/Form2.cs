@@ -16,11 +16,10 @@ namespace Chat_Client_
     public partial class Form2 : Form
     {
         public static int control = 0;
-        string player1Score = "";
-        string player2Score = "";
         public Form2()
         {
             InitializeComponent();
+
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();
@@ -107,6 +106,8 @@ namespace Chat_Client_
             while (control==0)
             {
                 Socket temp = null;
+                Player1ScoreLabel.Text = GlobalClient.player1score;
+                Player2ScoreLabel.Text = GlobalClient.player2score;
                 try
                 {
 
@@ -136,14 +137,26 @@ namespace Chat_Client_
                                 tempScore1[i] = str.ElementAt(i);
 
                             }
-                            player1Score = new String(tempScore1);
-                            for (int j = halfPos + 1; j < endPos; j++)
+                            GlobalClient.player1score = new String(tempScore1);
+                            for (int j = halfPos+1; j < endPos; j++)
                             {
-                                int i = 0;
-                                tempScore2[i] = str.ElementAt(j);
-                                i++;
+                                    tempScore2[j-(halfPos+1)] = str.ElementAt(j);
                             }
-                            player2Score = new String(tempScore2);
+                            Console.WriteLine(new String(tempScore2) + "temp");
+                            Console.WriteLine(GlobalClient.player2score + "global");
+
+                            //for (int k = halfPos + 1; j < endPos; j++)
+                            //{
+                            //    tempScore2[j - (halfPos + 1)] = str.ElementAt(j);
+                            //}
+                            if (new String(tempScore2).Equals(GlobalClient.player2score))
+                            {
+                                Console.WriteLine("<<<<<<<<<<<in retn dan if la>>>>>>>>>>>>");
+                                string message = "Word does not exist";
+                                MessageBox.Show(message);
+                            }
+                            GlobalClient.player2score = new String(tempScore2);
+                            
                         }
                         else if (str.Contains("!Reset!"))
                         {
@@ -186,11 +199,8 @@ namespace Chat_Client_
                 }
                 finally
                 {
+                   
                     
-                    Player1ScoreLabel.Text = player1Score;
-                    GlobalClient.player1score = player1Score;
-                    Player2ScoreLabel.Text = player2Score;
-                    GlobalClient.player2score = player2Score;
                 }
 
                 
@@ -217,6 +227,7 @@ namespace Chat_Client_
             }
             Consonant.Enabled = false;
             Vowel.Enabled = false;
+            btnNewRound.Enabled = false;
         }
         void MyButtonClick(object sender, EventArgs e)
         {
@@ -241,7 +252,7 @@ namespace Chat_Client_
                 socketSend.Connect(iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
-
+                btnNewRound.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -289,6 +300,5 @@ namespace Chat_Client_
                 socketSend.Close();
             }
         }
-        
     }
 }

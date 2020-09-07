@@ -8,7 +8,10 @@ namespace Chat_Client_
 {
     class GlobalClient
     {
-        public static string player1score = "";
-        public static string player2score = "";
+        public static string player1score = "0";
+        public static string player2score = "0";
+
+        public static string player1Name= "";
+        public static string player2Name = "";
     }
 }
