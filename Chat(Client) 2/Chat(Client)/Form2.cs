@@ -15,6 +15,9 @@ namespace Chat_Client_
 {
     public partial class Form2 : Form
     {
+        public static int control = 0;
+        string player1Score = "";
+        string player2Score = "";
         public Form2()
         {
             InitializeComponent();
@@ -33,8 +36,8 @@ namespace Chat_Client_
             byte[] messageSentFromClient;
             try
             {
-                string hostName = Dns.GetHostName(); // Retrive the Name of HOST
-                Console.WriteLine(hostName);
+                // Retrive the Name of HOST
+                string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 socketSend.Connect(iPEndPointSend);
@@ -63,7 +66,8 @@ namespace Chat_Client_
             byte[] messageSentFromClient;
             try
             {
-                string hostName = Dns.GetHostName(); // Retrive the Name of HOST
+                // Retrive the Name of HOST
+                string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 socketSend.Connect(iPEndPointSend);
@@ -81,8 +85,13 @@ namespace Chat_Client_
                 socketSend.Close();
             }
         }
-        void ReceivedByClient()
+        public void ReceivedByClient()
         {
+            if (control == 1)
+            {
+                control = 0;
+            }
+            Console.WriteLine("Kentish");
             Socket socketReceive = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             int portReceive = 40001;
             IPEndPoint iPEndPointReceive = new IPEndPoint(IPAddress.Any, portReceive);
@@ -91,67 +100,84 @@ namespace Chat_Client_
             string msg = "??????????";
             string temporaryString = "";
             char[] ch = msg.ToCharArray();
-            string player1Score="";
-            string player2Score = "";
+            
+            Console.WriteLine("Client avant while loop: " + control);
 
-            while (true)
+            //bool controlFlag = true;
+            while (control==0)
             {
                 Socket temp = null;
                 try
                 {
-                    temp = socketReceive.Accept();
-                    byte[] messageReceivedByServer = new byte[100];
-                    int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
-                    string str = Encoding.ASCII.GetString(messageReceivedByServer);
-                    char[] tempScore1 = new char[10];
-                    char[] tempScore2 = new char[10];
 
-                    Console.WriteLine(str);
-
-                    int endPos = str.IndexOf("#");
                     
-                    Console.WriteLine(str);
-                    
-                    if (str.Contains("$"))
+                    if (control == 0)
                     {
-                        int halfPos = str.IndexOf("$");
-                        for (int i = 0; i < halfPos; i++)
+                        Console.WriteLine("Client zis avant temp socketAccept <COUNT>: " + control);
+                        temp = socketReceive.Accept();
+                        Console.WriteLine("apres temp00");
+
+                        byte[] messageReceivedByServer = new byte[100];
+                        int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
+                        string str = Encoding.ASCII.GetString(messageReceivedByServer);
+                        char[] tempScore1 = new char[10];
+                        char[] tempScore2 = new char[10];
+
+                        Console.WriteLine(str);
+
+                        int endPos = str.IndexOf("#");
+
+                        Console.WriteLine("Client String: " + str);
+                        if (str.Contains("$"))
                         {
-                            tempScore1[i] = str.ElementAt(i);
-                            
+                            int halfPos = str.IndexOf("$");
+                            for (int i = 0; i < halfPos; i++)
+                            {
+                                tempScore1[i] = str.ElementAt(i);
+
+                            }
+                            player1Score = new String(tempScore1);
+                            for (int j = halfPos + 1; j < endPos; j++)
+                            {
+                                int i = 0;
+                                tempScore2[i] = str.ElementAt(j);
+                                i++;
+                            }
+                            player2Score = new String(tempScore2);
                         }
-                        player1Score = new String(tempScore1);
-                        for (int j = halfPos+1; j < endPos; j++)
+                        else if (str.Contains("!Reset!"))
                         {
-                            int i = 0;
-                            tempScore2[i] = str.ElementAt(j);
-                            i++;
-                        }
-                        player2Score = new String(tempScore2);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < endPos; i++)
-                        {
-                            ch[i] = str.ElementAt(i);
+                            //socketReceive.Close();
+                            Console.WriteLine("Client: Socket Closed");
+                            control = 1;
+                            Console.WriteLine("Client: cvbnm,s");
+                            Console.WriteLine("Client: New Form");
+                            //this.Dispose(true);
 
                         }
-                        temporaryString = new String(ch);
-                        button1.Text = temporaryString.ElementAt(0).ToString();
-                        button2.Text = temporaryString.ElementAt(1).ToString();
-                        button3.Text = temporaryString.ElementAt(2).ToString();
-                        button4.Text = temporaryString.ElementAt(3).ToString();
-                        button5.Text = temporaryString.ElementAt(4).ToString();
-                        button6.Text = temporaryString.ElementAt(5).ToString();
-                        button7.Text = temporaryString.ElementAt(6).ToString();
-                        button8.Text = temporaryString.ElementAt(7).ToString();
-                        button9.Text = temporaryString.ElementAt(8).ToString();
-                        button10.Text = temporaryString.ElementAt(9).ToString();
-                        Console.WriteLine(msg);
+                        else
+                        {
+                            for (int i = 0; i < endPos; i++)
+                            {
+                                ch[i] = str.ElementAt(i);
+                            }
+                            temporaryString = new String(ch);
+                            button1.Text = temporaryString.ElementAt(0).ToString();
+                            button2.Text = temporaryString.ElementAt(1).ToString();
+                            button3.Text = temporaryString.ElementAt(2).ToString();
+                            button4.Text = temporaryString.ElementAt(3).ToString();
+                            button5.Text = temporaryString.ElementAt(4).ToString();
+                            button6.Text = temporaryString.ElementAt(5).ToString();
+                            button7.Text = temporaryString.ElementAt(6).ToString();
+                            button8.Text = temporaryString.ElementAt(7).ToString();
+                            button9.Text = temporaryString.ElementAt(8).ToString();
+                            button10.Text = temporaryString.ElementAt(9).ToString();
+                            Console.WriteLine("Client MSG: " + msg);
+                        }
+
                     }
-                    
                     //labelShow.Text += "\r\nServer: " + str;
-
+                            
                 }
                 catch (Exception ex)
                 {
@@ -160,11 +186,26 @@ namespace Chat_Client_
                 }
                 finally
                 {
-                    temp.Close();
+                    
                     Player1ScoreLabel.Text = player1Score;
+                    GlobalClient.player1score = player1Score;
                     Player2ScoreLabel.Text = player2Score;
+                    GlobalClient.player2score = player2Score;
                 }
+
+                
             }
+            socketReceive.Close();
+            control = 0;
+            this.Dispose(true);
+            Form2 frm = new Form2();
+            frm.Player1ScoreLabel.Text = GlobalClient.player1score;
+            frm.Player2ScoreLabel.Text = GlobalClient.player2score;
+            frm.ShowDialog();
+            
+            this.Close();
+            
+            
         }
 
         private void button10_TextChanged(object sender, EventArgs e)
@@ -189,11 +230,12 @@ namespace Chat_Client_
             int portSend = 40000;
             IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            string messageTextBox = word.Text; ;
+            string messageTextBox = word.Text;
             byte[] messageSentFromClient;
             try
             {
-                string hostName = Dns.GetHostName(); // Retrive the Name of HOST
+                // Retrive the Name of HOST
+                string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 socketSend.Connect(iPEndPointSend);
@@ -211,5 +253,42 @@ namespace Chat_Client_
                 socketSend.Close();
             }
         }
+
+        private void TextClear_Click(object sender, EventArgs e)
+        {
+            word.Text = string.Empty;
+            button10_TextChanged(sender,e);
+        }
+
+        private void btnNewRound_Click(object sender, EventArgs e)
+        {
+            int portSend = 40000;
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            string messageTextBox = "!Reset!";
+            byte[] messageSentFromClient;
+            try
+            {
+                // Retrive the Name of HOST
+                string hostName = Dns.GetHostName();
+                // Get the IP
+                string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
+                socketSend.Connect(iPEndPointSend);
+                messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + myIP + "#");
+                socketSend.Send(messageSentFromClient, SocketFlags.None);
+                //labelShow.Text += "\r\nClient: " + messageTextBox + myIP;
+                //textBoxMessage.Text = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.HelpLink + "\n" + ex.InnerException
+                        + "\n" + ex.Source + "\n" + ex.TargetSite);
+            }
+            finally
+            {
+                socketSend.Close();
+            }
+        }
+        
     }
 }

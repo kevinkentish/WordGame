@@ -51,6 +51,8 @@ namespace Chat_Client_
             this.label4 = new System.Windows.Forms.Label();
             this.Player1ScoreLabel = new System.Windows.Forms.Label();
             this.Player2ScoreLabel = new System.Windows.Forms.Label();
+            this.TextClear = new System.Windows.Forms.Button();
+            this.btnNewRound = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,6 +223,7 @@ namespace Chat_Client_
             // 
             // word
             // 
+            this.word.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.word.Location = new System.Drawing.Point(171, 217);
             this.word.Name = "word";
             this.word.ReadOnly = true;
@@ -229,7 +232,7 @@ namespace Chat_Client_
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(27, 259);
+            this.Submit.Location = new System.Drawing.Point(288, 254);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(75, 23);
             this.Submit.TabIndex = 13;
@@ -302,11 +305,34 @@ namespace Chat_Client_
             this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 13);
             this.Player2ScoreLabel.TabIndex = 20;
             // 
+            // TextClear
+            // 
+            this.TextClear.Location = new System.Drawing.Point(171, 254);
+            this.TextClear.Name = "TextClear";
+            this.TextClear.Size = new System.Drawing.Size(75, 23);
+            this.TextClear.TabIndex = 21;
+            this.TextClear.Text = "Clear";
+            this.TextClear.UseVisualStyleBackColor = true;
+            this.TextClear.Click += new System.EventHandler(this.TextClear_Click);
+            // 
+            // btnNewRound
+            // 
+            this.btnNewRound.Location = new System.Drawing.Point(794, 406);
+            this.btnNewRound.Name = "btnNewRound";
+            this.btnNewRound.Size = new System.Drawing.Size(75, 23);
+            this.btnNewRound.TabIndex = 22;
+            this.btnNewRound.Text = "New Round";
+            this.btnNewRound.Click += new System.EventHandler(this.btnNewRound_Click);
+            this.btnNewRound.Enabled = false;
+            this.btnNewRound.BackColor = System.Drawing.Color.AliceBlue;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.btnNewRound);
+            this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);
             this.Controls.Add(this.Player1ScoreLabel);
             this.Controls.Add(this.label4);
@@ -359,5 +385,7 @@ namespace Chat_Client_
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Player1ScoreLabel;
         private System.Windows.Forms.Label Player2ScoreLabel;
+        private System.Windows.Forms.Button TextClear;
+        private System.Windows.Forms.Button btnNewRound;
     }
 }

@@ -100,6 +100,22 @@ namespace Chat_Server_
                         Console.WriteLine(Globals.player2Score.ToString());
                         SendScores();
                     }
+                    if (str.Contains("!Reset!"))
+                    {
+                        count = 2;
+                        Globals.listOfLetters = "";
+                        SendGeneratedStringOfLetters();
+
+                        for (int i = 0; i < 2; i++)
+                        {
+                            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                            string catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, "!Reset!", socketSend);
+                            Console.WriteLine(catchedMsg);
+                            
+                            socketSend.Close();
+                        }
+
+                    }
                     
                 }
                 catch (Exception ex)
