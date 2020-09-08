@@ -319,6 +319,7 @@ namespace Chat_Client_
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(0, 13);
             this.Player2Name.TabIndex = 18;
+            this.Player2Name.Text = GlobalClient.player2Name;
             // 
             // Player1Name
             // 
@@ -327,6 +328,7 @@ namespace Chat_Client_
             this.Player1Name.Name = "Player1Name";
             this.Player1Name.Size = new System.Drawing.Size(0, 13);
             this.Player1Name.TabIndex = 17;
+            this.Player1Name.Text = GlobalClient.player1Name;
             // 
             // btnRestart
             // 
