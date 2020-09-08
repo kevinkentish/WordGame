@@ -53,6 +53,7 @@ namespace Chat_Client_
             this.Player2ScoreLabel = new System.Windows.Forms.Label();
             this.Player2Name = new System.Windows.Forms.Label();
             this.Player1Name = new System.Windows.Forms.Label();
+            this.btnRestart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -226,7 +227,7 @@ namespace Chat_Client_
             // word
             // 
             this.word.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.word.Location = new System.Drawing.Point(27, 217);
+            this.word.Location = new System.Drawing.Point(171, 217);
             this.word.Name = "word";
             this.word.ReadOnly = true;
             this.word.Size = new System.Drawing.Size(192, 20);
@@ -234,7 +235,7 @@ namespace Chat_Client_
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(108, 243);
+            this.Submit.Location = new System.Drawing.Point(288, 254);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(75, 23);
             this.Submit.TabIndex = 13;
@@ -257,7 +258,7 @@ namespace Chat_Client_
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 192);
+            this.label1.Location = new System.Drawing.Point(24, 216);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 18);
             this.label1.TabIndex = 15;
@@ -267,7 +268,7 @@ namespace Chat_Client_
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 9);
+            this.label2.Location = new System.Drawing.Point(27, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(276, 24);
             this.label2.TabIndex = 16;
@@ -275,7 +276,7 @@ namespace Chat_Client_
             // 
             // TextClear
             // 
-            this.TextClear.Location = new System.Drawing.Point(27, 243);
+            this.TextClear.Location = new System.Drawing.Point(171, 254);
             this.TextClear.Name = "TextClear";
             this.TextClear.Size = new System.Drawing.Size(75, 23);
             this.TextClear.TabIndex = 21;
@@ -317,7 +318,8 @@ namespace Chat_Client_
             this.Player2Name.Location = new System.Drawing.Point(652, 217);
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(0, 13);
-
+            this.Player2Name.TabIndex = 18;
+            // 
             // Player1Name
             // 
             this.Player1Name.AutoSize = true;
@@ -326,11 +328,22 @@ namespace Chat_Client_
             this.Player1Name.Size = new System.Drawing.Size(0, 13);
             this.Player1Name.TabIndex = 17;
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(369, 362);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 23);
+            this.btnRestart.TabIndex = 23;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnNewRound);
             this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);
@@ -387,5 +400,6 @@ namespace Chat_Client_
         private System.Windows.Forms.Label Player2ScoreLabel;
         private System.Windows.Forms.Label Player2Name;
         private System.Windows.Forms.Label Player1Name;
+        private System.Windows.Forms.Button btnRestart;
     }
 }

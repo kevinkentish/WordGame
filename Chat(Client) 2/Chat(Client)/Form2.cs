@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -143,6 +144,7 @@ namespace Chat_Client_
                         Console.WriteLine("Client String: " + str);
                         if (str.Contains("$"))
                         {
+                            btnNewRound.Enabled = true;
                             int halfPos = str.IndexOf("$");
                             for (int i = 0; i < halfPos; i++)
                             {
@@ -157,24 +159,19 @@ namespace Chat_Client_
                             Console.WriteLine(new String(tempScore2) + "temp");
                             Console.WriteLine(GlobalClient.player2score + "global");
 
-                            //for (int k = halfPos + 1; j < endPos; j++)
-                            //{
-                            //    tempScore2[j - (halfPos + 1)] = str.ElementAt(j);
-                            //}
-                            //if (new String(tempScore2).Equals(GlobalClient.player2score))
-                            //{
-                            //    Console.WriteLine("<<<<<<<<<<<in retn dan if la>>>>>>>>>>>>");
-                            //    string message = "Word does not exist";
-                            //    MessageBox.Show(message);
-                            //}
                             GlobalClient.player2score = new String(tempScore2);
                             
                         }
                         else if (str.Contains("!Invalid!"))
                         {
+                            btnNewRound.Enabled = false;
                             Console.WriteLine("<<<<<<<<<<<in retn dan if la>>>>>>>>>>>>");
-                            string message = "Word does not exist";
-                            MessageBox.Show(message);
+                            string message = "Word does not exist!! You have been awarded 0 Marks";
+                            DialogResult d = MessageBox.Show(message);
+                            if(d == DialogResult.OK)
+                            {
+                                btnNewRound.Enabled = true;
+                            }
 
                         }
                         else if (str.Contains("!Reset!"))
@@ -269,7 +266,6 @@ namespace Chat_Client_
                 socketSend.Connect(iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
-                btnNewRound.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -318,6 +314,12 @@ namespace Chat_Client_
             {
                 socketSend.Close();
             }
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            //Process.Start(Application.ExecutablePath);
+            //Application.Restart();
         }
     }
 }
