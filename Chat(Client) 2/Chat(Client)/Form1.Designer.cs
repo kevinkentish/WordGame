@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelShow = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonSend
@@ -89,12 +90,21 @@
             this.labelShow.TabIndex = 18;
             this.labelShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(686, 90);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.TabIndex = 19;
+            // 
             // FormClient
             // 
             this.AcceptButton = this.buttonSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.labelShow);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -115,5 +125,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxMessage;
         private System.Windows.Forms.Label labelShow;
+        private System.Windows.Forms.Label timeLabel;
     }
 }

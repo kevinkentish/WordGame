@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Timers;
 
 namespace Chat_Client_
 {
@@ -70,17 +71,18 @@ namespace Chat_Client_
                     Console.WriteLine(msg);
                     Console.WriteLine(GlobalClient.player1Name);
                     Console.WriteLine(GlobalClient.player2Name);
-
+                    
                     if (msg.Contains("Game Start!"))
                     {
                         socketReceive.Close();
-                        temp.Close();
+                        newTimer.Enabled = true;
+                        newTimer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+                        newTimer.Interval = 1000;
+                        newTimer.AutoReset = true;
 
-                        this.Dispose(true);
-                        Form2 frm = new Form2();
-                        frm.ShowDialog();
                         break;
                     }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -93,6 +95,22 @@ namespace Chat_Client_
                 //}
                 temp.Close();
             }
+            
+        }
+        System.Timers.Timer newTimer = new System.Timers.Timer();
+        int counting = 5;
+        public void send(object source, System.Timers.ElapsedEventArgs e)
+           {
+            if (counting == 0)
+            {
+                newTimer.Enabled = false;
+                this.Dispose(true);
+                Form2 frm = new Form2();
+                frm.ShowDialog();
+            }
+            this.timeLabel.Text = counting.ToString();
+            counting--;
+            
         }
         //================================================================================================================================================
         private void buttonSend_Click(object sender, EventArgs e)
