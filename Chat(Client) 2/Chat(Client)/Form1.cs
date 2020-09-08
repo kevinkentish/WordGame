@@ -78,7 +78,6 @@ namespace Chat_Client_
                         newTimer.Enabled = true;
                         newTimer.Elapsed += new System.Timers.ElapsedEventHandler(send);
                         newTimer.Interval = 1000;
-                        newTimer.AutoReset = true;
 
                         break;
                     }
@@ -140,6 +139,7 @@ namespace Chat_Client_
             finally
             {
                 socketSend.Close();
+                buttonSend.Enabled = false;
             }
         }
         //============================================================Send================================================================================

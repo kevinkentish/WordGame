@@ -225,7 +225,7 @@ namespace Chat_Client_
             else
             {
                
-                Form frm = new Form();
+                Form3 frm = new Form3();
                 frm.ShowDialog();
             }
             
