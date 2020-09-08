@@ -53,6 +53,7 @@ namespace Chat_Client_
             this.Player2ScoreLabel = new System.Windows.Forms.Label();
             this.Player2Name = new System.Windows.Forms.Label();
             this.Player1Name = new System.Windows.Forms.Label();
+            this.btnRestart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,6 +200,7 @@ namespace Chat_Client_
             // 
             // Consonant
             // 
+            this.Consonant.Enabled = false;
             this.Consonant.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Consonant.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Consonant.Location = new System.Drawing.Point(45, 137);
@@ -208,10 +210,10 @@ namespace Chat_Client_
             this.Consonant.Text = "Consonant";
             this.Consonant.UseVisualStyleBackColor = true;
             this.Consonant.Click += new System.EventHandler(this.Consonant_Click);
-            this.Consonant.Enabled = false;
             // 
             // Vowel
             // 
+            this.Vowel.Enabled = false;
             this.Vowel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Vowel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Vowel.Location = new System.Drawing.Point(450, 137);
@@ -221,7 +223,6 @@ namespace Chat_Client_
             this.Vowel.Text = "Vowel";
             this.Vowel.UseVisualStyleBackColor = true;
             this.Vowel.Click += new System.EventHandler(this.Vowel_Click);
-            this.Vowel.Enabled = false;
             // 
             // word
             // 
@@ -318,7 +319,6 @@ namespace Chat_Client_
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(0, 13);
             this.Player2Name.TabIndex = 18;
-            this.Player2Name.Text = GlobalClient.player2Name;
             // 
             // Player1Name
             // 
@@ -327,14 +327,23 @@ namespace Chat_Client_
             this.Player1Name.Name = "Player1Name";
             this.Player1Name.Size = new System.Drawing.Size(0, 13);
             this.Player1Name.TabIndex = 17;
-            this.Player1Name.Text = GlobalClient.player1Name;
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(369, 362);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 23);
+            this.btnRestart.TabIndex = 23;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
-            this.CenterToScreen();
+            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnNewRound);
             this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);
@@ -391,5 +400,6 @@ namespace Chat_Client_
         private System.Windows.Forms.Label Player2ScoreLabel;
         private System.Windows.Forms.Label Player2Name;
         private System.Windows.Forms.Label Player1Name;
+        private System.Windows.Forms.Button btnRestart;
     }
 }
