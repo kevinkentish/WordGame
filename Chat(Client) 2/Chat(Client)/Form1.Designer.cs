@@ -31,53 +31,106 @@
             this.labelShow = new System.Windows.Forms.Label();
             this.buttonSend = new System.Windows.Forms.Button();
             this.textBoxMessage = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PlayButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelShow
             // 
-            this.labelShow.BackColor = System.Drawing.Color.Fuchsia;
-            this.labelShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelShow.Location = new System.Drawing.Point(0, 0);
+            this.labelShow.BackColor = System.Drawing.SystemColors.Window;
+            this.labelShow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelShow.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShow.Location = new System.Drawing.Point(490, 187);
             this.labelShow.Name = "labelShow";
-            this.labelShow.Size = new System.Drawing.Size(280, 257);
+            this.labelShow.Size = new System.Drawing.Size(278, 65);
             this.labelShow.TabIndex = 0;
             // 
             // buttonSend
             // 
             this.buttonSend.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSend.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonSend.Location = new System.Drawing.Point(205, 0);
+            this.buttonSend.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSend.Location = new System.Drawing.Point(116, 271);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 257);
+            this.buttonSend.Size = new System.Drawing.Size(278, 46);
             this.buttonSend.TabIndex = 1;
-            this.buttonSend.Text = "Send";
+            this.buttonSend.Text = "Connect";
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
-            
             // 
             // textBoxMessage
             // 
-            this.textBoxMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBoxMessage.Location = new System.Drawing.Point(0, 237);
+            this.textBoxMessage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMessage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textBoxMessage.Location = new System.Drawing.Point(116, 187);
+            this.textBoxMessage.Multiline = true;
             this.textBoxMessage.Name = "textBoxMessage";
-            this.textBoxMessage.Size = new System.Drawing.Size(205, 20);
+            this.textBoxMessage.Size = new System.Drawing.Size(278, 65);
             this.textBoxMessage.TabIndex = 0;
+            this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(187, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 18);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Enter your name:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(317, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(276, 24);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Welcome to  [0-9][^a-zA-Z]";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(551, 147);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 18);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Players connected:";
+            // 
+            // PlayButton
+            // 
+            this.PlayButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PlayButton.Enabled = false;
+            this.PlayButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayButton.Location = new System.Drawing.Point(490, 271);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(278, 46);
+            this.PlayButton.TabIndex = 19;
+            this.PlayButton.Text = "Play";
+            this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormClient
             // 
             this.AcceptButton = this.buttonSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.PlayButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.labelShow);
-            //this.MaximumSize = new System.Drawing.Size(300, 300);
-            //this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "FormClient";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Client";
+            this.Text = "Welcome";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,6 +140,10 @@
 
         private System.Windows.Forms.Label labelShow;
         private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxMessage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button PlayButton;
     }
 }

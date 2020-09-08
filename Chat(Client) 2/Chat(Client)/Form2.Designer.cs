@@ -199,6 +199,7 @@ namespace Chat_Client_
             // 
             // Consonant
             // 
+            this.Consonant.Enabled = false;
             this.Consonant.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Consonant.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Consonant.Location = new System.Drawing.Point(45, 137);
@@ -208,10 +209,10 @@ namespace Chat_Client_
             this.Consonant.Text = "Consonant";
             this.Consonant.UseVisualStyleBackColor = true;
             this.Consonant.Click += new System.EventHandler(this.Consonant_Click);
-            this.Consonant.Enabled = false;
             // 
             // Vowel
             // 
+            this.Vowel.Enabled = false;
             this.Vowel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Vowel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Vowel.Location = new System.Drawing.Point(450, 137);
@@ -221,12 +222,11 @@ namespace Chat_Client_
             this.Vowel.Text = "Vowel";
             this.Vowel.UseVisualStyleBackColor = true;
             this.Vowel.Click += new System.EventHandler(this.Vowel_Click);
-            this.Vowel.Enabled = false;
             // 
             // word
             // 
             this.word.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.word.Location = new System.Drawing.Point(171, 217);
+            this.word.Location = new System.Drawing.Point(27, 217);
             this.word.Name = "word";
             this.word.ReadOnly = true;
             this.word.Size = new System.Drawing.Size(192, 20);
@@ -234,7 +234,7 @@ namespace Chat_Client_
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(288, 254);
+            this.Submit.Location = new System.Drawing.Point(108, 243);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(75, 23);
             this.Submit.TabIndex = 13;
@@ -257,7 +257,7 @@ namespace Chat_Client_
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 216);
+            this.label1.Location = new System.Drawing.Point(24, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 18);
             this.label1.TabIndex = 15;
@@ -267,7 +267,7 @@ namespace Chat_Client_
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 13);
+            this.label2.Location = new System.Drawing.Point(23, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(276, 24);
             this.label2.TabIndex = 16;
@@ -275,7 +275,7 @@ namespace Chat_Client_
             // 
             // TextClear
             // 
-            this.TextClear.Location = new System.Drawing.Point(171, 254);
+            this.TextClear.Location = new System.Drawing.Point(27, 243);
             this.TextClear.Name = "TextClear";
             this.TextClear.Size = new System.Drawing.Size(75, 23);
             this.TextClear.TabIndex = 21;
@@ -317,9 +317,7 @@ namespace Chat_Client_
             this.Player2Name.Location = new System.Drawing.Point(652, 217);
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(0, 13);
-            this.Player2Name.TabIndex = 18;
-            this.Player2Name.Text = GlobalClient.player2Name;
-            // 
+
             // Player1Name
             // 
             this.Player1Name.AutoSize = true;
@@ -327,14 +325,12 @@ namespace Chat_Client_
             this.Player1Name.Name = "Player1Name";
             this.Player1Name.Size = new System.Drawing.Size(0, 13);
             this.Player1Name.TabIndex = 17;
-            this.Player1Name.Text = GlobalClient.player1Name;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
-            this.CenterToScreen();
             this.Controls.Add(this.btnNewRound);
             this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);

@@ -72,8 +72,10 @@ namespace Chat_Client_
                     Console.WriteLine(msg);
                     Console.WriteLine(GlobalClient.player1Name);
                     Console.WriteLine(GlobalClient.player2Name);
+
                     if (msg.Contains("Game Start!"))
                     {
+                        PlayButton.Enabled = true;
                         socketReceive.Close();
                         temp.Close();
                         
@@ -124,6 +126,25 @@ namespace Chat_Client_
             {
                 socketSend.Close();
             }
+        }
+
+        private void textBoxMessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+
+            this.Dispose(true);
+            Form2 frm = new Form2();
+            frm.ShowDialog();
         }
         //============================================================Send================================================================================
     }
