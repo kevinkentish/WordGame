@@ -40,13 +40,11 @@ namespace Chat_Client_
                     byte[] messageReceivedByServer = new byte[100];
                     int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
-                    labelShow.Text += "\r\nServer: " + str;
 
                     if(str.Contains("Wait for the other player"))
                     {
                         GlobalClient.player1 = true;
                     }
-                    labelShow.Text += GlobalClient.player1;
                     int pos = 0;
                     int endPos = str.IndexOf("!");
                     int endPosName1 = str.IndexOf("@");
@@ -75,10 +73,9 @@ namespace Chat_Client_
 
                     if (msg.Contains("Game Start!"))
                     {
-                        PlayButton.Enabled = true;
                         socketReceive.Close();
                         temp.Close();
-                        
+
                         this.Dispose(true);
                         Form2 frm = new Form2();
                         frm.ShowDialog();
@@ -114,7 +111,7 @@ namespace Chat_Client_
                 socketSend.Connect(iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
-                labelShow.Text += "\r\nClient: " + messageTextBox + myIP;
+                labelShow.Text += "\r\nHi, " + messageTextBox  +"\r\nPlease wait for the other player to connect";
                 textBoxMessage.Text = null;
             }
             catch (Exception ex)
@@ -126,25 +123,6 @@ namespace Chat_Client_
             {
                 socketSend.Close();
             }
-        }
-
-        private void textBoxMessage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-
-            this.Dispose(true);
-            Form2 frm = new Form2();
-            frm.ShowDialog();
         }
         //============================================================Send================================================================================
     }
