@@ -114,10 +114,12 @@ namespace Chat_Server_
                     {
                         GameStart();
                     }
+                    
                     if (count > 2 && count < 13)
                     {
                         SendGeneratedStringOfLetters();
                     }
+                    Console.WriteLine("serveroutput count 1");
                     if (count > 12 && count<15 )
                     {
                         string found = CheckWord.CheckExistingWord(str);
@@ -140,6 +142,7 @@ namespace Chat_Server_
                         }
                         
                     }
+                    Console.WriteLine("serveroutput count 2");
                     if (str.Contains("!Reset!"))
                     {
                         count = 2;
@@ -155,6 +158,12 @@ namespace Chat_Server_
                             socketSend.Close();
                         }
 
+                    }
+                    if (str.Contains("RestartServer"))
+                    {
+                        Console.WriteLine(count.ToString());
+                        Application.Restart();
+                        Environment.Exit(0);
                     }
                     
                 }

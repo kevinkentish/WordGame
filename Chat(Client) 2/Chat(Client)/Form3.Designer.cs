@@ -55,7 +55,7 @@ namespace Chat_Client_
             this.Player1Name.Name = "Player1Name";
             this.Player1Name.Size = new System.Drawing.Size(0, 13);
             this.Player1Name.TabIndex = 1;
-            this.Player1Name.Text = GlobalClient.player1Name;
+
             // 
             // Player2Name
             // 
@@ -64,7 +64,6 @@ namespace Chat_Client_
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(0, 13);
             this.Player2Name.TabIndex = 2;
-            this.Player2Name.Text = GlobalClient.player2Name;
             // 
             // Player1Score
             // 
@@ -73,7 +72,7 @@ namespace Chat_Client_
             this.Player1Score.Name = "Player1Score";
             this.Player1Score.Size = new System.Drawing.Size(13, 13);
             this.Player1Score.TabIndex = 3;
-            this.Player1Score.Text = GlobalClient.player1score;
+            this.Player1Score.Text = "0";
             // 
             // Player2Score
             // 
@@ -82,7 +81,7 @@ namespace Chat_Client_
             this.Player2Score.Name = "Player2Score";
             this.Player2Score.Size = new System.Drawing.Size(13, 13);
             this.Player2Score.TabIndex = 4;
-            this.Player2Score.Text = GlobalClient.player2score;
+            this.Player2Score.Text = "0";
             // 
             // Results
             // 
@@ -100,6 +99,7 @@ namespace Chat_Client_
             this.button1.TabIndex = 6;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form3
             // 
@@ -117,7 +117,7 @@ namespace Chat_Client_
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();
-            
+
         }
 
         #endregion
