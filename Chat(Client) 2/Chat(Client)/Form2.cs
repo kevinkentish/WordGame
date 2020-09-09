@@ -25,7 +25,10 @@ namespace Chat_Client_
                 Vowel.Enabled = true;
                 Consonant.Enabled = true;
             }
-            
+            Player1Name.Text = GlobalClient.player1Name;
+            Player2Name.Text = GlobalClient.player2Name;
+            label3.Text = GlobalClient.roundPlayed.ToString();
+
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();

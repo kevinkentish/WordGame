@@ -300,37 +300,37 @@ namespace Chat_Client_
             // Player1ScoreLabel
             // 
             this.Player1ScoreLabel.AutoSize = true;
-            this.Player1ScoreLabel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player1ScoreLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1ScoreLabel.Location = new System.Drawing.Point(571, 264);
             this.Player1ScoreLabel.Name = "Player1ScoreLabel";
-            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 23);
+            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 22);
             this.Player1ScoreLabel.TabIndex = 19;
             // 
             // Player2ScoreLabel
             // 
             this.Player2ScoreLabel.AutoSize = true;
-            this.Player2ScoreLabel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player2ScoreLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2ScoreLabel.Location = new System.Drawing.Point(652, 264);
             this.Player2ScoreLabel.Name = "Player2ScoreLabel";
-            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 23);
+            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 22);
             this.Player2ScoreLabel.TabIndex = 20;
             // 
             // Player2Name
             // 
             this.Player2Name.AutoSize = true;
-            this.Player2Name.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player2Name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2Name.Location = new System.Drawing.Point(652, 217);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(0, 23);
+            this.Player2Name.Size = new System.Drawing.Size(0, 22);
             this.Player2Name.TabIndex = 18;
             // 
             // Player1Name
             // 
             this.Player1Name.AutoSize = true;
-            this.Player1Name.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player1Name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1Name.Location = new System.Drawing.Point(571, 217);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(0, 23);
+            this.Player1Name.Size = new System.Drawing.Size(0, 22);
             this.Player1Name.TabIndex = 17;
             // 
             // label3
@@ -338,10 +338,9 @@ namespace Chat_Client_
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(715, 18);
-            this.label3.Name = "roundLabel";
-            this.label3.Size = new System.Drawing.Size(0, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 19);
             this.label3.TabIndex = 23;
-            this.label3.Text = (GlobalClient.roundPlayed + 1).ToString();
             // 
             // label4
             // 
