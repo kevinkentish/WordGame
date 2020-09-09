@@ -25,6 +25,7 @@ namespace Chat_Client_
                 Vowel.Enabled = true;
                 Consonant.Enabled = true;
             }
+            
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();
@@ -212,7 +213,7 @@ namespace Chat_Client_
             control = 0;
             this.Dispose(true);
             
-            if (GlobalClient.roundPlayed < 1)
+            if (GlobalClient.roundPlayed < 4)
             {
                 
                 GlobalClient.roundPlayed++;
@@ -220,9 +221,9 @@ namespace Chat_Client_
                 Form2 frm = new Form2();
                 frm.Player1ScoreLabel.Text = GlobalClient.player1score;
                 frm.Player2ScoreLabel.Text = GlobalClient.player2score;
-                if (GlobalClient.roundPlayed == 1)
+                if (GlobalClient.roundPlayed == 4)
                 {
-                    frm.btnNewRound.Text = "Check results";
+                    frm.btnNewRound.Text = "End Game!";
                 }
                 frm.ShowDialog();
                 
@@ -326,12 +327,6 @@ namespace Chat_Client_
             {
                 socketSend.Close();
             }
-        }
-
-        private void btnRestart_Click(object sender, EventArgs e)
-        {
-            //Process.Start(Application.ExecutablePath);
-            //Application.Restart();
         }
     }
 }

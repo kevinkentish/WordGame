@@ -53,7 +53,8 @@ namespace Chat_Client_
             this.Player2ScoreLabel = new System.Windows.Forms.Label();
             this.Player2Name = new System.Windows.Forms.Label();
             this.Player1Name = new System.Windows.Forms.Label();
-            this.btnRestart = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -292,60 +293,73 @@ namespace Chat_Client_
             this.btnNewRound.Name = "btnNewRound";
             this.btnNewRound.Size = new System.Drawing.Size(75, 23);
             this.btnNewRound.TabIndex = 22;
-            this.btnNewRound.Text = "New Round";
+            this.btnNewRound.Text = "Next Round";
             this.btnNewRound.UseVisualStyleBackColor = false;
             this.btnNewRound.Click += new System.EventHandler(this.btnNewRound_Click);
             // 
             // Player1ScoreLabel
             // 
             this.Player1ScoreLabel.AutoSize = true;
+            this.Player1ScoreLabel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1ScoreLabel.Location = new System.Drawing.Point(571, 264);
             this.Player1ScoreLabel.Name = "Player1ScoreLabel";
-            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 23);
             this.Player1ScoreLabel.TabIndex = 19;
             // 
             // Player2ScoreLabel
             // 
             this.Player2ScoreLabel.AutoSize = true;
+            this.Player2ScoreLabel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2ScoreLabel.Location = new System.Drawing.Point(652, 264);
             this.Player2ScoreLabel.Name = "Player2ScoreLabel";
-            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 23);
             this.Player2ScoreLabel.TabIndex = 20;
             // 
             // Player2Name
             // 
             this.Player2Name.AutoSize = true;
+            this.Player2Name.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2Name.Location = new System.Drawing.Point(652, 217);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(0, 13);
+            this.Player2Name.Size = new System.Drawing.Size(0, 23);
             this.Player2Name.TabIndex = 18;
-            this.Player2Name.Text = GlobalClient.player2Name;
             // 
             // Player1Name
             // 
             this.Player1Name.AutoSize = true;
+            this.Player1Name.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1Name.Location = new System.Drawing.Point(571, 217);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(0, 13);
+            this.Player1Name.Size = new System.Drawing.Size(0, 23);
             this.Player1Name.TabIndex = 17;
-            this.Player1Name.Text = GlobalClient.player1Name;
             // 
-            // btnRestart
+            // label3
             // 
-            this.btnRestart.Location = new System.Drawing.Point(369, 362);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(75, 23);
-            this.btnRestart.TabIndex = 23;
-            this.btnRestart.Text = "Restart";
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(715, 18);
+            this.label3.Name = "roundLabel";
+            this.label3.Size = new System.Drawing.Size(0, 19);
+            this.label3.TabIndex = 23;
+            this.label3.Text = (GlobalClient.roundPlayed + 1).ToString();
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(732, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 19);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "out of 5";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
-            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNewRound);
             this.Controls.Add(this.TextClear);
             this.Controls.Add(this.Player2ScoreLabel);
@@ -370,12 +384,11 @@ namespace Chat_Client_
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Des Chiffres et des Lettres";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PerformLayout();
-            
 
         }
 
@@ -404,6 +417,7 @@ namespace Chat_Client_
         private System.Windows.Forms.Label Player2ScoreLabel;
         private System.Windows.Forms.Label Player2Name;
         private System.Windows.Forms.Label Player1Name;
-        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

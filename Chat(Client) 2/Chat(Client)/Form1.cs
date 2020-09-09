@@ -109,7 +109,7 @@ namespace Chat_Client_
                 Form2 frm = new Form2();
                 frm.ShowDialog();
             }
-            this.timeLabel.Text = counting.ToString();
+            this.timeLabel.Text = "Game starting in ... "+counting.ToString();
             counting--;
             
         }
@@ -130,7 +130,8 @@ namespace Chat_Client_
                 socketSend.Connect(iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
-                labelShow.Text += "\r\nHi, " + messageTextBox  +"\r\nPlease wait for the other player to connect";
+                labelShow.Text = "Hi, " + messageTextBox;
+                timeLabel.Text = "Please wait for the other player to connect";
                 textBoxMessage.Text = null;
             }
             catch (Exception ex)

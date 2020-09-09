@@ -124,5 +124,10 @@ namespace Chat_Client_
                 socketSend.Close();
             }
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
