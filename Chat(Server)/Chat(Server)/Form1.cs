@@ -114,10 +114,12 @@ namespace Chat_Server_
                     {
                         GameStart();
                     }
+                    
                     if (count > 2 && count < 13)
                     {
                         SendGeneratedStringOfLetters();
                     }
+                    Console.WriteLine("serveroutput count 1");
                     if (count > 12 && count<15 )
                     {
                         string found = CheckWord.CheckExistingWord(str);
@@ -140,6 +142,7 @@ namespace Chat_Server_
                         }
                         
                     }
+                    Console.WriteLine("serveroutput count 2");
                     if (str.Contains("!Reset!"))
                     {
                         count = 2;
@@ -155,6 +158,32 @@ namespace Chat_Server_
                             socketSend.Close();
                         }
 
+                    }
+                    if (str.Contains("!CheckResults!"))
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                            string catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, "!Reset!", socketSend);
+                            Console.WriteLine(catchedMsg);
+
+                            socketSend.Close();
+                        }
+
+                    }
+                    if (str.Contains("RestartServer"))
+                    {
+                        Console.WriteLine("imraan"+count.ToString());
+                        for (int i = 0; i < 2; i++)
+                        {
+                            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                            string catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, "!RestartClient!", socketSend);
+                            Console.WriteLine(catchedMsg);
+
+                            socketSend.Close();
+                        }
+                        Globals.ResetGlobals();
+                        count = 0;
                     }
                     
                 }

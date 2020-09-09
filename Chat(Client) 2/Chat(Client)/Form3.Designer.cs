@@ -60,6 +60,7 @@ namespace Chat_Client_
             this.Player1Name.Name = "Player1Name";
             this.Player1Name.Size = new System.Drawing.Size(0, 18);
             this.Player1Name.TabIndex = 1;
+
             // 
             // Player2Name
             // 
@@ -108,6 +109,8 @@ namespace Chat_Client_
             this.button1.TabIndex = 6;
             this.button1.Text = "New Game";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // Form3
             // 
@@ -125,6 +128,7 @@ namespace Chat_Client_
             this.Name = "Form3";
             this.Text = "Leaderboard";
             this.ResumeLayout(false);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PerformLayout();
 
         }

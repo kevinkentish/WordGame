@@ -22,6 +22,8 @@ namespace Chat_Client_
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();
+            Console.WriteLine("player1 name"+ GlobalClient.player1Name);
+            Console.WriteLine("player1 score" + GlobalClient.player1score);
         }
         //============================================================Receive================================================================================
         Thread threadReceive;

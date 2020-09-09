@@ -17,5 +17,15 @@ namespace Chat_Client_
 
         public static bool player1 = false;
         public static int roundPlayed = 0;
+
+        public static void ResetGlobalsClient()
+        {
+            player1score = "0";
+            player2score = "0";
+            player1Name = "";
+            player2Name = "";
+            player1 = false;
+            roundPlayed = 0;
+        }
     }
 }

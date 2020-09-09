@@ -162,6 +162,7 @@ namespace Chat_Client_
                             GlobalClient.player2score = new String(tempScore2);
                             
                         }
+
                         else if (str.Contains("!Invalid!"))
                         {
                             btnNewRound.Enabled = false;
@@ -211,13 +212,18 @@ namespace Chat_Client_
             control = 0;
             this.Dispose(true);
             
-            if (GlobalClient.roundPlayed < 3)
+            if (GlobalClient.roundPlayed < 1)
             {
+                
                 GlobalClient.roundPlayed++;
                 Console.WriteLine("Global count: " + GlobalClient.roundPlayed);
                 Form2 frm = new Form2();
                 frm.Player1ScoreLabel.Text = GlobalClient.player1score;
                 frm.Player2ScoreLabel.Text = GlobalClient.player2score;
+                if (GlobalClient.roundPlayed == 1)
+                {
+                    frm.btnNewRound.Text = "Check results";
+                }
                 frm.ShowDialog();
                 
                 
@@ -238,10 +244,11 @@ namespace Chat_Client_
             {
                 s.Enabled = true;
                 s.UseVisualStyleBackColor = true;
+                Consonant.Enabled = false;
+                Vowel.Enabled = false;
+                btnNewRound.Enabled = false;
             }
-            Consonant.Enabled = false;
-            Vowel.Enabled = false;
-            btnNewRound.Enabled = false;
+            
         }
         void MyButtonClick(object sender, EventArgs e)
         {
@@ -292,6 +299,11 @@ namespace Chat_Client_
             IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "!Reset!";
+            if (btnNewRound.Text.Equals("Check results"))
+            {
+                messageTextBox = "!CheckResults!";
+            }
+            
             byte[] messageSentFromClient;
             try
             {
