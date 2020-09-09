@@ -129,5 +129,10 @@ namespace Chat_Client_
         {
 
         }
+
+        private void Player2Name_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

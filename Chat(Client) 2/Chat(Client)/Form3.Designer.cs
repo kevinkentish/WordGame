@@ -71,19 +71,20 @@ namespace Chat_Client_
             this.Player2Name.AutoSize = true;
             this.Player2Name.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Player2Name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2Name.Location = new System.Drawing.Point(454, 177);
+            this.Player2Name.Location = new System.Drawing.Point(457, 177);
             this.Player2Name.MinimumSize = new System.Drawing.Size(200, 50);
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(200, 50);
             this.Player2Name.TabIndex = 2;
             this.Player2Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Player2Name.Click += new System.EventHandler(this.Player2Name_Click);
             // 
             // Player1Score
             // 
             this.Player1Score.AutoSize = true;
             this.Player1Score.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Player1Score.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1Score.Location = new System.Drawing.Point(338, 243);
+            this.Player1Score.Location = new System.Drawing.Point(318, 243);
             this.Player1Score.Name = "Player1Score";
             this.Player1Score.Size = new System.Drawing.Size(18, 18);
             this.Player1Score.TabIndex = 3;
