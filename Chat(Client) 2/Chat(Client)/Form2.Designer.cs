@@ -373,7 +373,9 @@ namespace Chat_Client_
             this.Text = "Des Chiffres et des Lettres";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PerformLayout();
+            
 
         }
 

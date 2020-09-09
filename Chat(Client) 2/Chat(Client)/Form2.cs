@@ -162,6 +162,7 @@ namespace Chat_Client_
                             GlobalClient.player2score = new String(tempScore2);
                             
                         }
+
                         else if (str.Contains("!Invalid!"))
                         {
                             btnNewRound.Enabled = false;
@@ -243,10 +244,11 @@ namespace Chat_Client_
             {
                 s.Enabled = true;
                 s.UseVisualStyleBackColor = true;
+                Consonant.Enabled = false;
+                Vowel.Enabled = false;
+                btnNewRound.Enabled = false;
             }
-            Consonant.Enabled = false;
-            Vowel.Enabled = false;
-            btnNewRound.Enabled = false;
+            
         }
         void MyButtonClick(object sender, EventArgs e)
         {
@@ -299,7 +301,7 @@ namespace Chat_Client_
             string messageTextBox = "!Reset!";
             if (btnNewRound.Text.Equals("Check results"))
             {
-                messageTextBox = "";
+                messageTextBox = "!CheckResults!";
             }
             
             byte[] messageSentFromClient;

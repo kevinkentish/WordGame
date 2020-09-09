@@ -100,6 +100,7 @@ namespace Chat_Client_
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // Form3
             // 
@@ -116,6 +117,7 @@ namespace Chat_Client_
             this.Name = "Form3";
             this.Text = "Form3";
             this.ResumeLayout(false);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PerformLayout();
 
         }

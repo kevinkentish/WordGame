@@ -71,12 +71,12 @@
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.labelShow);
-            this.MaximumSize = new System.Drawing.Size(300, 300);
+            this.MaximumSize = new System.Drawing.Size(300, 600);
             this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "FormServer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Server";
+            this.Text = "re";
             this.ResumeLayout(false);
             this.PerformLayout();
 
