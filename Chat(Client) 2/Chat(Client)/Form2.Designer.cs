@@ -56,7 +56,10 @@ namespace Chat_Client_
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -229,15 +232,17 @@ namespace Chat_Client_
             // word
             // 
             this.word.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.word.Location = new System.Drawing.Point(171, 217);
+            this.word.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.word.Location = new System.Drawing.Point(126, 255);
             this.word.Name = "word";
             this.word.ReadOnly = true;
-            this.word.Size = new System.Drawing.Size(192, 20);
+            this.word.Size = new System.Drawing.Size(192, 35);
             this.word.TabIndex = 12;
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(288, 254);
+            this.Submit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Submit.Location = new System.Drawing.Point(243, 301);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(75, 23);
             this.Submit.TabIndex = 13;
@@ -260,7 +265,7 @@ namespace Chat_Client_
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 216);
+            this.label1.Location = new System.Drawing.Point(152, 216);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 18);
             this.label1.TabIndex = 15;
@@ -278,7 +283,8 @@ namespace Chat_Client_
             // 
             // TextClear
             // 
-            this.TextClear.Location = new System.Drawing.Point(171, 254);
+            this.TextClear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextClear.Location = new System.Drawing.Point(126, 301);
             this.TextClear.Name = "TextClear";
             this.TextClear.Size = new System.Drawing.Size(75, 23);
             this.TextClear.TabIndex = 21;
@@ -290,9 +296,10 @@ namespace Chat_Client_
             // 
             this.btnNewRound.BackColor = System.Drawing.Color.AliceBlue;
             this.btnNewRound.Enabled = false;
-            this.btnNewRound.Location = new System.Drawing.Point(794, 406);
+            this.btnNewRound.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewRound.Location = new System.Drawing.Point(581, 384);
             this.btnNewRound.Name = "btnNewRound";
-            this.btnNewRound.Size = new System.Drawing.Size(75, 23);
+            this.btnNewRound.Size = new System.Drawing.Size(116, 34);
             this.btnNewRound.TabIndex = 22;
             this.btnNewRound.Text = "Next Round";
             this.btnNewRound.UseVisualStyleBackColor = false;
@@ -301,44 +308,50 @@ namespace Chat_Client_
             // Player1ScoreLabel
             // 
             this.Player1ScoreLabel.AutoSize = true;
+            this.Player1ScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player1ScoreLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1ScoreLabel.Location = new System.Drawing.Point(571, 264);
+            this.Player1ScoreLabel.Location = new System.Drawing.Point(92, 98);
             this.Player1ScoreLabel.Name = "Player1ScoreLabel";
-            this.Player1ScoreLabel.Size = new System.Drawing.Size(0, 22);
+            this.Player1ScoreLabel.Size = new System.Drawing.Size(2, 24);
             this.Player1ScoreLabel.TabIndex = 19;
+            this.Player1ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Player2ScoreLabel
             // 
             this.Player2ScoreLabel.AutoSize = true;
+            this.Player2ScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player2ScoreLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2ScoreLabel.Location = new System.Drawing.Point(652, 264);
+            this.Player2ScoreLabel.Location = new System.Drawing.Point(270, 100);
             this.Player2ScoreLabel.Name = "Player2ScoreLabel";
-            this.Player2ScoreLabel.Size = new System.Drawing.Size(0, 22);
+            this.Player2ScoreLabel.Size = new System.Drawing.Size(2, 24);
             this.Player2ScoreLabel.TabIndex = 20;
+            this.Player2ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Player2Name
             // 
-            this.Player2Name.AutoSize = true;
+            this.Player2Name.BackColor = System.Drawing.SystemColors.Control;
             this.Player2Name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2Name.Location = new System.Drawing.Point(652, 217);
+            this.Player2Name.Location = new System.Drawing.Point(180, 51);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(0, 22);
+            this.Player2Name.Size = new System.Drawing.Size(183, 22);
             this.Player2Name.TabIndex = 18;
+            this.Player2Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Player1Name
             // 
-            this.Player1Name.AutoSize = true;
+            this.Player1Name.BackColor = System.Drawing.SystemColors.Control;
             this.Player1Name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1Name.Location = new System.Drawing.Point(571, 217);
+            this.Player1Name.Location = new System.Drawing.Point(1, 51);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(0, 22);
+            this.Player1Name.Size = new System.Drawing.Size(183, 22);
             this.Player1Name.TabIndex = 17;
+            this.Player1Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(715, 18);
+            this.label3.Location = new System.Drawing.Point(722, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 19);
             this.label3.TabIndex = 23;
@@ -357,26 +370,48 @@ namespace Chat_Client_
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(612, 18);
+            this.label5.Location = new System.Drawing.Point(642, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 19);
             this.label5.TabIndex = 25;
             this.label5.Text = "Round: ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.Player1Name);
+            this.groupBox1.Controls.Add(this.Player2Name);
+            this.groupBox1.Controls.Add(this.Player1ScoreLabel);
+            this.groupBox1.Controls.Add(this.Player2ScoreLabel);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(450, 216);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(363, 152);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Leaderboard";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(171, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 25);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "-";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNewRound);
             this.Controls.Add(this.TextClear);
-            this.Controls.Add(this.Player2ScoreLabel);
-            this.Controls.Add(this.Player1ScoreLabel);
-            this.Controls.Add(this.Player2Name);
-            this.Controls.Add(this.Player1Name);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Submit);
@@ -398,6 +433,8 @@ namespace Chat_Client_
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Des Chiffres et des Lettres";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +468,7 @@ namespace Chat_Client_
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

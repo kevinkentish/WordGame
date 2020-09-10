@@ -310,5 +310,7 @@ namespace Chat_Client_
                 socketSend.Close();
             }
         }
+
+
     }
 }
