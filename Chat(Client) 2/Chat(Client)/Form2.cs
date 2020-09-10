@@ -91,7 +91,7 @@ namespace Chat_Client_
             {
                 control = 0;
             }
-            Socket socketReceive = CreateSocketReceive.ReceiveSocket();
+            Socket socketReceive = CreateSocketClient.ReceiveSocket();
 
             string msg = "??????????";
             string temporaryString = "";

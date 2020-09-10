@@ -23,7 +23,7 @@ namespace Chat_Client_
         Thread threadReceive;
         void ReceivedByClient()
         {
-            Socket socketReceive = CreateSocketReceive.ReceiveSocket();
+            Socket socketReceive = CreateSocketClient.ReceiveSocket();
             while (true)
             {
                 Socket temp = null;
@@ -104,7 +104,7 @@ namespace Chat_Client_
         private void buttonSend_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = textBoxMessage.Text;
             byte[] messageSentFromClient;

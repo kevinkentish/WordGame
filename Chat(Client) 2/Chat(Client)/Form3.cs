@@ -52,7 +52,7 @@ namespace Chat_Client_
 
         void ReceivedByClient()
         {
-            Socket socketReceive = CreateSocketReceive.ReceiveSocket();
+            Socket socketReceive = CreateSocketClient.ReceiveSocket();
             while (true)
             {
                 Socket temp = null;
