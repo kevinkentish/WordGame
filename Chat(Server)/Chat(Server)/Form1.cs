@@ -80,6 +80,10 @@ namespace Chat_Server_
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+            for (int i =0; i<300;i++)
+            {
+                labelShow.Text += "\r\n test"+i;
+            }
             threadReceive = new Thread(new ThreadStart(ReceivedByServer));
             threadReceive.Start();
         }
@@ -197,33 +201,6 @@ namespace Chat_Server_
                 }
             }
         }
-        //================================================================================================================================================
-        private void buttonSend_Click(object sender, EventArgs e)
-        {
-            string messageTextBox = textBoxMessage.Text;
-            try
-            {
-                String catchedMsg = string.Empty;
-                
-                for (int i = 0; i < 2; i++)
-                {
-                    Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);                  
-                    catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, messageTextBox, socketSend);
-                    Console.WriteLine(catchedMsg);
-                    
-                    textBoxMessage.Text = null;
-                    socketSend.Close();
-                }
-                labelShow.Text += "\r\nServer: " + catchedMsg;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.HelpLink + "\n" + ex.InnerException
-                        + "\n" + ex.Source + "\n" + ex.TargetSite);
-            }
-        }
-
-
         //============================================================Receive================================================================================
     }
 }

@@ -65,7 +65,7 @@
     </Compile>
     <Compile Include="GenerateLetter.cs" />
     <Compile Include="Globals.cs" />
-    <Compile Include="IpAdress.cs" />
+    <Compile Include="objectPlayer.cs" />
     <Compile Include="LoadWords.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
