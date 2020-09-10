@@ -88,21 +88,19 @@ namespace Chat_Server_
             IPEndPoint iPEndPointReceive = new IPEndPoint(IPAddress.Any, portReceive);
             socketReceive.Bind(iPEndPointReceive);
             socketReceive.Listen(10);
-            String client = String.Empty;
+
             while (true)
             {
                 Socket temp = null;
                 try
                 {
-
-                    //Put in a class
                     temp = socketReceive.Accept();
                     byte[] messageReceivedByServer = new byte[100];
                     int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
                     CheckIP.CheckIpAddress(str);
 
-                    labelShow.Text += "\r\nClient: "+ client + str;
+                    labelShow.Text += "\r\n Client: " + str;
                     if (Globals.players.Count < 2)
                     {
                         Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

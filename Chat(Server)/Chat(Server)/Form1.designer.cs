@@ -28,19 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelShow = new System.Windows.Forms.Label();
+            this.labelShow = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelShow
             // 
             this.labelShow.BackColor = System.Drawing.Color.Black;
             this.labelShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelShow.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShow.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelShow.ForeColor = System.Drawing.Color.Lime;
             this.labelShow.Location = new System.Drawing.Point(0, 0);
+            this.labelShow.Multiline = true;
             this.labelShow.Name = "labelShow";
+            this.labelShow.ReadOnly = true;
+            this.labelShow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.labelShow.ShortcutsEnabled = false;
             this.labelShow.Size = new System.Drawing.Size(284, 261);
-            this.labelShow.TabIndex = 0;
+            this.labelShow.TabIndex = 1;
             // 
             // FormServer
             // 
@@ -58,11 +62,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hosting Server";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label labelShow;
+        private System.Windows.Forms.TextBox labelShow;
     }
 }
