@@ -231,7 +231,7 @@ namespace Chat_Client_
             // 
             // word
             // 
-            this.word.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.word.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.word.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.word.Location = new System.Drawing.Point(126, 255);
             this.word.Name = "word";
@@ -239,6 +239,7 @@ namespace Chat_Client_
             this.word.Size = new System.Drawing.Size(192, 35);
             this.word.TabIndex = 12;
             this.word.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.word.UseWaitCursor = true;
             // 
             // Submit
             // 

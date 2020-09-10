@@ -145,8 +145,6 @@ namespace Chat_Client_
                             {
                                     tempScore2[j-(halfPos+1)] = str.ElementAt(j);
                             }
-                            Console.WriteLine(new String(tempScore2) + "temp");
-                            Console.WriteLine(GlobalClient.player2score + "global");
 
                             GlobalClient.player2score = new String(tempScore2);
                             
@@ -232,7 +230,6 @@ namespace Chat_Client_
                 Consonant.Enabled = false;
                 Vowel.Enabled = false;
                 btnNewRound.Enabled = false;
-
             }
             
         }

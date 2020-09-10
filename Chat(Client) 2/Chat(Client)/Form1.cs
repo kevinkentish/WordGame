@@ -103,7 +103,7 @@ namespace Chat_Client_
         //================================================================================================================================================
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            
+            textBoxMessage.Enabled = false;
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = textBoxMessage.Text;
             byte[] messageSentFromClient;
@@ -118,7 +118,7 @@ namespace Chat_Client_
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
                 labelShow.Text = "Hi, " + messageTextBox;
                 timeLabel.Text = "Please wait for the other player to connect";
-                textBoxMessage.Text = null;
+                
             }
             catch (Exception ex)
             {
