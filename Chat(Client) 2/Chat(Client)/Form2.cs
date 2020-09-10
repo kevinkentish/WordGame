@@ -194,6 +194,7 @@ namespace Chat_Client_
                             + "\n" + ex.Source + "\n" + ex.TargetSite);
                 } 
             }
+
             socketReceive.Close();
             control = 0;
             this.Dispose(true);
@@ -283,10 +284,6 @@ namespace Chat_Client_
             
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "!Reset!";
-            if (btnNewRound.Text.Equals("Check results"))
-            {
-                messageTextBox = "!CheckResults!";
-            }
             
             byte[] messageSentFromClient;
             try

@@ -155,18 +155,7 @@ namespace Chat_Server_
                         }
 
                     }
-                    if (str.Contains("!CheckResults!"))
-                    {
-                        for (int i = 0; i < 2; i++)
-                        {
-                            Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                            string catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, "!Reset!", socketSend);
-                            Console.WriteLine(catchedMsg);
 
-                            socketSend.Close();
-                        }
-
-                    }
                     if (str.Contains("RestartServer"))
                     {
                         for (int i = 0; i < 2; i++)

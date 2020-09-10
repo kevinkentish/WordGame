@@ -34,6 +34,10 @@ namespace Chat_Client_
                 {
                     Results.Text = "Sorry " + GlobalClient.player1Name + ", you suck";
                 }
+                else
+                {
+                    Results.Text = "It's a draw";
+                }
             }
             else
             {
@@ -44,6 +48,10 @@ namespace Chat_Client_
                 else if (Convert.ToInt32(GlobalClient.player1score) > Convert.ToInt32(GlobalClient.player2score))
                 {
                     Results.Text = "Sorry " + GlobalClient.player2Name + ", you suck";
+                }
+                else
+                {
+                    Results.Text = "It's a draw";
                 }
             }
         }
@@ -109,14 +117,5 @@ namespace Chat_Client_
             }
         }
 
-        private void Form3_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Player2Name_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

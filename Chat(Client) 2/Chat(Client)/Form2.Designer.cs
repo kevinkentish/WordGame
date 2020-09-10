@@ -238,6 +238,7 @@ namespace Chat_Client_
             this.word.ReadOnly = true;
             this.word.Size = new System.Drawing.Size(192, 35);
             this.word.TabIndex = 12;
+            this.word.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Submit
             // 
@@ -267,9 +268,9 @@ namespace Chat_Client_
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(152, 216);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 18);
+            this.label1.Size = new System.Drawing.Size(131, 18);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Enter your word:";
+            this.label1.Text = "Pick your word:";
             // 
             // label2
             // 
@@ -277,9 +278,9 @@ namespace Chat_Client_
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(276, 24);
+            this.label2.Size = new System.Drawing.Size(130, 24);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Des Chiffres et des Lettres";
+            this.label2.Text = "Word Game";
             // 
             // TextClear
             // 
@@ -307,23 +308,21 @@ namespace Chat_Client_
             // 
             // Player1ScoreLabel
             // 
-            this.Player1ScoreLabel.AutoSize = true;
             this.Player1ScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player1ScoreLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1ScoreLabel.Location = new System.Drawing.Point(92, 98);
+            this.Player1ScoreLabel.Location = new System.Drawing.Point(75, 99);
             this.Player1ScoreLabel.Name = "Player1ScoreLabel";
-            this.Player1ScoreLabel.Size = new System.Drawing.Size(2, 24);
+            this.Player1ScoreLabel.Size = new System.Drawing.Size(39, 31);
             this.Player1ScoreLabel.TabIndex = 19;
             this.Player1ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Player2ScoreLabel
             // 
-            this.Player2ScoreLabel.AutoSize = true;
             this.Player2ScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player2ScoreLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2ScoreLabel.Location = new System.Drawing.Point(270, 100);
+            this.Player2ScoreLabel.Location = new System.Drawing.Point(251, 98);
             this.Player2ScoreLabel.Name = "Player2ScoreLabel";
-            this.Player2ScoreLabel.Size = new System.Drawing.Size(2, 24);
+            this.Player2ScoreLabel.Size = new System.Drawing.Size(39, 32);
             this.Player2ScoreLabel.TabIndex = 20;
             this.Player2ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -351,7 +350,7 @@ namespace Chat_Client_
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(722, 18);
+            this.label3.Location = new System.Drawing.Point(712, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 19);
             this.label3.TabIndex = 23;
@@ -386,7 +385,7 @@ namespace Chat_Client_
             this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(450, 216);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 152);
+            this.groupBox1.Size = new System.Drawing.Size(372, 152);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leaderboard";
@@ -431,7 +430,7 @@ namespace Chat_Client_
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Des Chiffres et des Lettres";
+            this.Text = "Word Game";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
