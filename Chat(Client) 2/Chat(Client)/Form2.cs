@@ -24,6 +24,7 @@ namespace Chat_Client_
             Player1Name.Text = GlobalClient.player1Name;
             Player2Name.Text = GlobalClient.player2Name;
             label3.Text = (GlobalClient.roundPlayed + 1).ToString();
+            Player1Name.Focus();
 
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
@@ -53,7 +54,9 @@ namespace Chat_Client_
                         + "\n" + ex.Source + "\n" + ex.TargetSite);
             }
             finally
-            {
+            {              
+
+                Player1Name.Focus();
                 socketSend.Close();
             }
         }
@@ -82,7 +85,7 @@ namespace Chat_Client_
             }
             finally
             {
-                socketSend.Close();
+                Player1Name.Focus();
             }
         }
         public void ReceivedByClient()
@@ -122,12 +125,14 @@ namespace Chat_Client_
                         if (str.Contains("!play!"))
                         {
                             Consonant.Enabled = true;
-                            Vowel.Enabled = true;
+                            Vowel.Enabled = true;                         
+
                         }
                         if (str.Contains("!wait!"))
                         {
                             Consonant.Enabled = false;
                             Vowel.Enabled = false;
+                            
                         }
                         int endPos = str.IndexOf("#");
 
