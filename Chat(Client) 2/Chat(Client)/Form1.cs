@@ -98,6 +98,7 @@ namespace Chat_Client_
             }
             
         }
+
         System.Timers.Timer newTimer = new System.Timers.Timer();
         int counting = 5;
         public void send(object source, System.Timers.ElapsedEventArgs e)

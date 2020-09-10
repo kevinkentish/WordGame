@@ -76,7 +76,7 @@
             this.Name = "FormServer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "re";
+            this.Text = "Hosting Server";
             this.ResumeLayout(false);
             this.PerformLayout();
 
