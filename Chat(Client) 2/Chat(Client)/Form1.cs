@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using System.Timers;
 
 namespace Chat_Client_
 {
@@ -29,11 +23,7 @@ namespace Chat_Client_
         Thread threadReceive;
         void ReceivedByClient()
         {
-            Socket socketReceive = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            int portReceive = 40001;
-            IPEndPoint iPEndPointReceive = new IPEndPoint(IPAddress.Any, portReceive);
-            socketReceive.Bind(iPEndPointReceive);
-            socketReceive.Listen(10);
+            Socket socketReceive = CreateSocketReceive.ReceiveSocket();
             while (true)
             {
                 Socket temp = null;
@@ -90,10 +80,6 @@ namespace Chat_Client_
                     MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.HelpLink + "\n" + ex.InnerException
                             + "\n" + ex.Source + "\n" + ex.TargetSite);
                 }
-                //finally
-                //{
-                //    temp.Close();
-                //}
                 temp.Close();
             }
             
@@ -118,7 +104,7 @@ namespace Chat_Client_
         private void buttonSend_Click(object sender, EventArgs e)
         {
             int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = textBoxMessage.Text;
             byte[] messageSentFromClient;
