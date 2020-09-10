@@ -42,7 +42,6 @@ namespace Chat_Client_
             this.button10 = new System.Windows.Forms.Button();
             this.Consonant = new System.Windows.Forms.Button();
             this.Vowel = new System.Windows.Forms.Button();
-            this.word = new System.Windows.Forms.TextBox();
             this.Submit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@ namespace Chat_Client_
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.word = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -229,22 +229,10 @@ namespace Chat_Client_
             this.Vowel.UseVisualStyleBackColor = true;
             this.Vowel.Click += new System.EventHandler(this.Vowel_Click);
             // 
-            // word
-            // 
-            this.word.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.word.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.word.Location = new System.Drawing.Point(126, 255);
-            this.word.Name = "word";
-            this.word.ReadOnly = true;
-            this.word.Size = new System.Drawing.Size(192, 35);
-            this.word.TabIndex = 12;
-            this.word.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.word.UseWaitCursor = true;
-            // 
             // Submit
             // 
             this.Submit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Submit.Location = new System.Drawing.Point(243, 301);
+            this.Submit.Location = new System.Drawing.Point(261, 301);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(75, 23);
             this.Submit.TabIndex = 13;
@@ -286,7 +274,7 @@ namespace Chat_Client_
             // TextClear
             // 
             this.TextClear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextClear.Location = new System.Drawing.Point(126, 301);
+            this.TextClear.Location = new System.Drawing.Point(104, 301);
             this.TextClear.Name = "TextClear";
             this.TextClear.Size = new System.Drawing.Size(75, 23);
             this.TextClear.TabIndex = 21;
@@ -401,11 +389,22 @@ namespace Chat_Client_
             this.label6.TabIndex = 21;
             this.label6.Text = "-";
             // 
+            // word
+            // 
+            this.word.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.word.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.word.Location = new System.Drawing.Point(104, 244);
+            this.word.Name = "word";
+            this.word.Size = new System.Drawing.Size(232, 46);
+            this.word.TabIndex = 27;
+            this.word.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.word);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -415,7 +414,6 @@ namespace Chat_Client_
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Submit);
-            this.Controls.Add(this.word);
             this.Controls.Add(this.Vowel);
             this.Controls.Add(this.Consonant);
             this.Controls.Add(this.button10);
@@ -454,7 +452,6 @@ namespace Chat_Client_
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button Consonant;
         private System.Windows.Forms.Button Vowel;
-        private System.Windows.Forms.TextBox word;
         private System.Windows.Forms.Button Submit;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
@@ -470,5 +467,6 @@ namespace Chat_Client_
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label word;
     }
 }
