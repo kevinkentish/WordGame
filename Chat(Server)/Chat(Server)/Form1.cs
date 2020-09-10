@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chat_Server_
@@ -80,10 +75,7 @@ namespace Chat_Server_
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            for (int i =0; i<300;i++)
-            {
-                labelShow.Text += "\r\n test"+i;
-            }
+            
             threadReceive = new Thread(new ThreadStart(ReceivedByServer));
             threadReceive.Start();
         }

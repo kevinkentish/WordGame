@@ -11,7 +11,7 @@ namespace Chat_Client_
     {
 
         public static int portSend = 40000;
-        public static IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+        public static IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
 
         public static string player1score = "0";
         public static string player2score = "0";
