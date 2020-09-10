@@ -103,8 +103,7 @@ namespace Chat_Client_
         //================================================================================================================================================
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.230"), portSend);
+            
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = textBoxMessage.Text;
             byte[] messageSentFromClient;
@@ -114,7 +113,7 @@ namespace Chat_Client_
                 //Console.WriteLine(hostName);
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-                socketSend.Connect(iPEndPointSend);
+                socketSend.Connect(GlobalClient.iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
                 labelShow.Text = "Hi, " + messageTextBox;

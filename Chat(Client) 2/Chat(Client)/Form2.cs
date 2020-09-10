@@ -31,8 +31,7 @@ namespace Chat_Client_
         Thread threadReceive;
         private void Consonant_Click(object sender, EventArgs e)
         {
-            int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
+
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "consonant";
             byte[] messageSentFromClient;
@@ -42,7 +41,7 @@ namespace Chat_Client_
                 string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-                socketSend.Connect(iPEndPointSend);
+                socketSend.Connect(GlobalClient.iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
             }
@@ -59,8 +58,7 @@ namespace Chat_Client_
 
         private void Vowel_Click(object sender, EventArgs e)
         {
-            int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
+           
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "vowel";
             byte[] messageSentFromClient;
@@ -70,7 +68,7 @@ namespace Chat_Client_
                 string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-                socketSend.Connect(iPEndPointSend);
+                socketSend.Connect(GlobalClient.iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
 
@@ -247,8 +245,7 @@ namespace Chat_Client_
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
+           
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = word.Text;
             byte[] messageSentFromClient;
@@ -258,7 +255,7 @@ namespace Chat_Client_
                 string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-                socketSend.Connect(iPEndPointSend);
+                socketSend.Connect(GlobalClient.iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
             }
@@ -283,8 +280,7 @@ namespace Chat_Client_
 
         private void btnNewRound_Click(object sender, EventArgs e)
         {
-            int portSend = 40000;
-            IPEndPoint iPEndPointSend = new IPEndPoint(IPAddress.Parse("10.232.20.229"), portSend);
+            
             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             string messageTextBox = "!Reset!";
             if (btnNewRound.Text.Equals("Check results"))
@@ -299,11 +295,10 @@ namespace Chat_Client_
                 string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-                socketSend.Connect(iPEndPointSend);
+                socketSend.Connect(GlobalClient.iPEndPointSend);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + myIP + "#");
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
-                //labelShow.Text += "\r\nClient: " + messageTextBox + myIP;
-                //textBoxMessage.Text = null;
+
             }
             catch (Exception ex)
             {
