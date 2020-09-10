@@ -19,6 +19,8 @@ namespace Chat_Client_
                 Vowel.Enabled = true;
                 Consonant.Enabled = true;
             }
+            TextClear.Enabled = false;
+            Submit.Enabled = false;
             Player1Name.Text = GlobalClient.player1Name;
             Player2Name.Text = GlobalClient.player2Name;
             label3.Text = (GlobalClient.roundPlayed + 1).ToString();
@@ -155,10 +157,6 @@ namespace Chat_Client_
                             btnNewRound.Enabled = false;
                             string message = "Word does not exist!! You have been awarded 0 Marks";
                             DialogResult d = MessageBox.Show(message);
-                            if(d == DialogResult.OK)
-                            {
-                                btnNewRound.Enabled = true;
-                            }
 
                         }
                         else if (str.Contains("!Reset!"))
@@ -234,6 +232,7 @@ namespace Chat_Client_
                 Consonant.Enabled = false;
                 Vowel.Enabled = false;
                 btnNewRound.Enabled = false;
+
             }
             
         }
