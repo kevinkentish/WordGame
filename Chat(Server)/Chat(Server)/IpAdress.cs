@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chat_Server_
 {
-    public class IpAdress
+    //Object to save IP address and Name
+    public class objectPlayer
     {
         public string Ip { get; set; }
         public string Name { get; set; }

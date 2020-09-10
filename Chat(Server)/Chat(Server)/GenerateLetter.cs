@@ -13,6 +13,7 @@ namespace Chat_Server_
         public static string GenerateLetters(string type)
         {
             var chars = "";
+            //Check for message to return vowel or consonant
             if (type.ToLower().Equals("vowel"))
             {
                 chars = "AEIOU";
@@ -21,14 +22,12 @@ namespace Chat_Server_
             {
                 chars = "BCDFGHJKLMNPQRSTVWXYZ";
             }
-
-
-
+            
             var stringChars = "";
+
             var random = new Random();
+            //Generating a random letter from the String chars.
             stringChars = chars[random.Next(chars.Length)].ToString();
-
-
 
             return stringChars;
         }

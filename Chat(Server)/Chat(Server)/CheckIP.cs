@@ -61,7 +61,7 @@ namespace Chat_Server_
 
         public static void AddIp(string ip, string name)
         {
-            IpAdress playerip = new IpAdress();
+            objectPlayer playerip = new objectPlayer();
             playerip.Ip = ip;
             playerip.Name = name;
             Globals.players.Add(playerip);
