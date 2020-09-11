@@ -11,6 +11,9 @@ namespace Chat_Server_
         public static int player2Score = 0;
         public static int count = 0;
 
+        public static bool P1Played = false;
+        public static bool P2Played = false;
+
         //Reset Global variables
         public static void ResetGlobals()
         {

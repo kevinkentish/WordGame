@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -14,11 +15,14 @@ namespace Chat_Client_
         public Form2()
         {
             InitializeComponent();
+
+            //Check if client is player 1 and enable playe first 
             if (GlobalClient.player1)
             {
                 Vowel.Enabled = true;
                 Consonant.Enabled = true;
             }
+
             TextClear.Enabled = false;
             Submit.Enabled = false;
             Player1Name.Text = GlobalClient.player1Name;
@@ -26,6 +30,7 @@ namespace Chat_Client_
             label3.Text = (GlobalClient.roundPlayed + 1).ToString();
             Player1Name.Focus();
 
+            //Create new thread
             CheckForIllegalCrossThreadCalls = false;
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();
@@ -110,7 +115,6 @@ namespace Chat_Client_
                 try
                 {
 
-
                     if (control == 0)
                     {
                         temp = socketReceive.Accept();
@@ -118,43 +122,31 @@ namespace Chat_Client_
                         byte[] messageReceivedByServer = new byte[100];
                         int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
                         string str = Encoding.ASCII.GetString(messageReceivedByServer);
-                        char[] tempScore1 = new char[10];
-                        char[] tempScore2 = new char[10];
 
+                        int endPos = str.IndexOf("#");
 
+                        //Enable buttons when receive !play!
                         if (str.Contains("!play!"))
                         {
                             Consonant.Enabled = true;
                             Vowel.Enabled = true;                         
-
                         }
-                        if (str.Contains("!wait!"))
+
+                        //Disable buttons when receive !wait!
+                        else if (str.Contains("!wait!"))
                         {
                             Consonant.Enabled = false;
                             Vowel.Enabled = false;
-                            
-                        }
-                        int endPos = str.IndexOf("#");
+                        }                       
 
+                        //Set Players score in global variable
                         if (str.Contains("$"))
                         {
                             btnNewRound.Enabled = true;
-                            int halfPos = str.IndexOf("$");
-                            for (int i = 0; i < halfPos; i++)
-                            {
-                                tempScore1[i] = str.ElementAt(i);
-
-                            }
-                            GlobalClient.player1score = new String(tempScore1);
-                            for (int j = halfPos+1; j < endPos; j++)
-                            {
-                                    tempScore2[j-(halfPos+1)] = str.ElementAt(j);
-                            }
-
-                            GlobalClient.player2score = new String(tempScore2);
-                            
+                            ExtractMessage.SetScores(str, endPos);                         
                         }
 
+                        //Inform player that word does not exist
                         else if (str.Contains("!Invalid!"))
                         {
                             btnNewRound.Enabled = false;
@@ -162,29 +154,41 @@ namespace Chat_Client_
                             DialogResult d = MessageBox.Show(message);
 
                         }
+
+                        //Play continues until receive !Reset!
                         else if (str.Contains("!Reset!"))
                         {
                             control = 1;
                         }
 
+                        else if (str.Contains("!DisplayScore!"))
+                        {
+                            socketReceive.Close();
+                            this.Close();
+                            Form3 frm = new Form3();
+                            frm.ShowDialog();
+                        }
+
                         else
                         {
+                            //Take each character in received string put in array of char.
                             for (int i = 0; i < endPos; i++)
                             {
                                 ch[i] = str.ElementAt(i);
                             }
+
+                            //Take array of chars, put in string
                             temporaryString = new String(ch);
-                            button1.Text = temporaryString.ElementAt(0).ToString();
-                            button2.Text = temporaryString.ElementAt(1).ToString();
-                            button3.Text = temporaryString.ElementAt(2).ToString();
-                            button4.Text = temporaryString.ElementAt(3).ToString();
-                            button5.Text = temporaryString.ElementAt(4).ToString();
-                            button6.Text = temporaryString.ElementAt(5).ToString();
-                            button7.Text = temporaryString.ElementAt(6).ToString();
-                            button8.Text = temporaryString.ElementAt(7).ToString();
-                            button9.Text = temporaryString.ElementAt(8).ToString();
-                            button10.Text = temporaryString.ElementAt(9).ToString();
-                            Console.WriteLine("Client MSG: " + msg);
+
+                            //Place all characters button in an array
+                            Button[] arrbtn = new Button[10] { button1, button2, button3, button4, button5, button6, button7, button8, button9, button10 };
+
+                            //Place characters in each button
+                            for (int i =0; i<(arrbtn.Length); i++)
+                            {
+                                arrbtn[i].Text = temporaryString.ElementAt(i).ToString();
+                            }
+                           
                         }
 
                     }        
@@ -200,11 +204,11 @@ namespace Chat_Client_
             control = 0;
             this.Dispose(true);
             
+            //Check is last round reached
             if (GlobalClient.roundPlayed < 4)
             {
-                
+                //Reopen Form2 until last round is reached
                 GlobalClient.roundPlayed++;
-                Console.WriteLine("Global count: " + GlobalClient.roundPlayed);
                 Form2 frm = new Form2();
                 frm.Player1ScoreLabel.Text = GlobalClient.player1score;
                 frm.Player2ScoreLabel.Text = GlobalClient.player2score;
@@ -214,11 +218,9 @@ namespace Chat_Client_
                 }
                 frm.ShowDialog();
                 
-                
             }
             else
             {
-               
                 Form3 frm = new Form3();
                 frm.ShowDialog();
             }
@@ -228,6 +230,9 @@ namespace Chat_Client_
 
         private void button10_TextChanged(object sender, EventArgs e)
         {
+            //When all characters are picked:
+            //Enable submit button 
+            //Disable pick consonant, vowel and new round button
             foreach (Button s in Controls.OfType<Button>())
             {
                 s.Enabled = true;
@@ -240,6 +245,7 @@ namespace Chat_Client_
         }
         void MyButtonClick(object sender, EventArgs e)
         {
+            //Pick character and form word
             Button button = sender as Button;
             word.Text += button.Text;
             button.Enabled = false;
@@ -253,12 +259,19 @@ namespace Chat_Client_
             byte[] messageSentFromClient;
             try
             {
+                string player = "P2";
+                if (GlobalClient.player1)
+                {
+                    player = "P1";
+                }
                 // Retrive the Name of HOST
                 string hostName = Dns.GetHostName();
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 socketSend.Connect(GlobalClient.iPEndPointSend);
-                messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#");
+                Console.WriteLine("CLIENT : " + messageTextBox + "$" + myIP + "#" + GlobalClient.roundPlayed);
+                messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#" + GlobalClient.roundPlayed+"^"+player);
+                
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
             }
             catch (Exception ex)
@@ -268,6 +281,7 @@ namespace Chat_Client_
             }
             finally
             {
+
                 socketSend.Close();
                 Submit.Enabled = false;
                 TextClear.Enabled = false;

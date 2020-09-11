@@ -40,6 +40,16 @@ namespace Chat_Server_
                     //Display message received from clients in server label.
                     labelShow.Text += "\r\n Client: " + str;
 
+                    if (str.ElementAt(str.IndexOf("^") + 2).Equals('1'))
+                    {
+                        Globals.P1Played = true;
+                    }
+                    if (str.ElementAt(str.IndexOf("^") + 2).Equals('2'))
+                    {
+                        Globals.P2Played = true;
+                    }
+
+
                     if (Globals.players.Count < 2)
                     {
                         Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -86,11 +96,28 @@ namespace Chat_Server_
                         {
                             Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                             string catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, "!Reset!", socketSend);
-                            Console.WriteLine(catchedMsg);
                             
                             socketSend.Close();
                         }
 
+                    }
+                    
+                    if (str.ElementAt(str.IndexOf("#") + 1).Equals('4'))
+                        {
+                        Console.WriteLine("P1 Played tag: " + Globals.P1Played);
+                        Console.WriteLine("P2 Played tag: " + Globals.P2Played);
+
+                        if (Globals.P1Played && Globals.P2Played)
+                        {
+                            for (int i = 0; i < 2; i++)
+                            {
+                                Socket socketSend = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                                string catchedMsg = ServerSend.SendToClient(Globals.players[i].Ip, "!DisplayScore!", socketSend);
+                                Console.WriteLine(catchedMsg);
+
+                                socketSend.Close();
+                            }
+                        }
                     }
 
                     if (str.Contains("RestartServer"))

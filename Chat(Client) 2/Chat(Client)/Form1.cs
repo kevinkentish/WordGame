@@ -39,28 +39,8 @@ namespace Chat_Client_
                     {
                         GlobalClient.player1 = true;
                     }
-                    int pos = 0;
-                    int endPos = str.IndexOf("!");
-                    int endPosName1 = str.IndexOf("@");
-                    int endPosName2 = str.IndexOf("%");
-                    string msg = "";
 
-                    //Retrieve player 1 and player 2 names + Message
-                    for (int i = pos; i <= endPos; i++)
-                    {
-                        msg += str.ElementAt(i);
-                    }
-
-                    //name of player 1
-                    for (int j = endPos + 1; j < endPosName1; j++)
-                    {
-                        GlobalClient.player1Name += str.ElementAt(j);
-                    }
-                    //name of player 2
-                    for (int k = endPosName1 + 1; k < endPosName2; k++)
-                    {
-                        GlobalClient.player2Name += str.ElementAt(k);
-                    }
+                    string msg = ExtractMessage.PlayerId(str);
 
                     //start timer when receiving game start message
                     if (msg.Contains("Game Start!"))
@@ -110,7 +90,7 @@ namespace Chat_Client_
             {
                 //pass name and Ip of client
                 string hostName = Dns.GetHostName(); // Retrive the Name of HOST
-                //Console.WriteLine(hostName);
+
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 socketSend.Connect(GlobalClient.iPEndPointSend);
