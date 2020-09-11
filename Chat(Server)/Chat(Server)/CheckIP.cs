@@ -21,7 +21,7 @@ namespace Chat_Server_
             {
                 name += stringReceived.ElementAt(j);
             }
-            //Console.WriteLine(Globals.players[0].Ip);
+
             if (name == "vowel" || name == "consonant")
             {
                 Globals.listOfLetters += GenerateLetter.GenerateLetters(name);
@@ -45,7 +45,7 @@ namespace Chat_Server_
                 
             }
             if (Globals.players.Count < 3){
-                FormServer.count++;
+                Globals.count++;
             }
             
             for (int i = 0; i < Globals.players.Count; i++)

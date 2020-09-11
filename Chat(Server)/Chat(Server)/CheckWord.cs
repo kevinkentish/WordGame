@@ -8,12 +8,14 @@ namespace Chat_Server_
     {
         public static string CheckExistingWord(String input)
         {
+             
             int pos = input.IndexOf("$");
             string word = "";
 
             int endPos = input.IndexOf("#");
             string ipadd = "";
 
+            //Extracting word from message sent from specific player
             for (int j = 0; j < pos; j++)
             {
                 word += input.ElementAt(j);
@@ -23,27 +25,28 @@ namespace Chat_Server_
                 ipadd += input.ElementAt(i);
 
             }
-            Console.WriteLine(ipadd);
-            Console.WriteLine(word);
+            //Loading dictionary
             List<string> vwords = LoadWords.LoadWordsList();
-            Console.WriteLine(Globals.players[0].Ip);
+
+
             foreach (string words in vwords)
             {
+                //Check if word exists in dictionary
                 if (word.ToLower() == words.ToLower())
                 {
+                    //Add score using word length to corresponding player
                     if(ipadd.Equals(Globals.players[0].Ip))
                     {
                         Globals.player1Score += word.Length;
-                        Console.WriteLine(Globals.player1Score);
                     }
                     if (ipadd.Equals(Globals.players[1].Ip))
                     {
                         Globals.player2Score += word.Length;
-                        Console.WriteLine(Globals.player2Score);
                     }
                     return "true";
                 }
             }
+            //Return false if word does not exist
             return ("false"+ipadd).ToString();
         }
     }

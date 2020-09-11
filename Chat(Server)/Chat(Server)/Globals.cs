@@ -9,6 +9,7 @@ namespace Chat_Server_
         public static string listOfLetters = "";
         public static int player1Score = 0;
         public static int player2Score = 0;
+        public static int count = 0;
 
         //Reset Global variables
         public static void ResetGlobals()
@@ -17,6 +18,7 @@ namespace Chat_Server_
             listOfLetters = "";
             player1Score = 0;
             player2Score = 0;
+            count = 0;
 
         }
     }  
