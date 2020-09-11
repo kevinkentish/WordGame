@@ -1,7 +1,4 @@
 ﻿using System;
-
-
-
 namespace Chat_Server_
 {
     class GenerateLetter

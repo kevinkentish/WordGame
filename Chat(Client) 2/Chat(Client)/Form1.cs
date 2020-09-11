@@ -14,10 +14,10 @@ namespace Chat_Client_
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+
+            //create and start thread
             threadReceive = new Thread(new ThreadStart(ReceivedByClient));
             threadReceive.Start();
-            Console.WriteLine("player1 name"+ GlobalClient.player1Name);
-            Console.WriteLine("player1 score" + GlobalClient.player1score);
         }
         //============================================================Receive================================================================================
         Thread threadReceive;
@@ -31,9 +31,10 @@ namespace Chat_Client_
                 {
                     temp = socketReceive.Accept();
                     byte[] messageReceivedByServer = new byte[100];
-                    int sizeOfReceivedMessage = temp.Receive(messageReceivedByServer, SocketFlags.None);
+                    temp.Receive(messageReceivedByServer, SocketFlags.None);
                     string str = Encoding.ASCII.GetString(messageReceivedByServer);
 
+                    //identify player 1
                     if(str.Contains("Wait for the other player"))
                     {
                         GlobalClient.player1 = true;
@@ -43,35 +44,32 @@ namespace Chat_Client_
                     int endPosName1 = str.IndexOf("@");
                     int endPosName2 = str.IndexOf("%");
                     string msg = "";
-                    Console.WriteLine(str);
 
-                    
+                    //Retrieve player 1 and player 2 names + Message
                     for (int i = pos; i <= endPos; i++)
                     {
                         msg += str.ElementAt(i);
                     }
 
-                    for (int j = endPos+1; j < endPosName1; j++)
+                    //name of player 1
+                    for (int j = endPos + 1; j < endPosName1; j++)
                     {
                         GlobalClient.player1Name += str.ElementAt(j);
                     }
-
-                    for (int k = endPosName1+1; k < endPosName2; k++)
+                    //name of player 2
+                    for (int k = endPosName1 + 1; k < endPosName2; k++)
                     {
                         GlobalClient.player2Name += str.ElementAt(k);
                     }
-                    Console.WriteLine(msg);
-                    Console.WriteLine(GlobalClient.player1Name);
-                    Console.WriteLine(GlobalClient.player2Name);
-                    
+
+                    //start timer when receiving game start message
                     if (msg.Contains("Game Start!"))
                     {
-                        socketReceive.Close();
-                        newTimer.Enabled = true;
-                        newTimer.Elapsed += new System.Timers.ElapsedEventHandler(send);
-                        newTimer.Interval = 1000;
-
-                        break;
+                            socketReceive.Close();
+                            newTimer.Enabled = true;
+                            newTimer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+                            newTimer.Interval = 1000;
+                            break;
                     }
                     
                 }
@@ -89,6 +87,7 @@ namespace Chat_Client_
         int counting = 5;
         public void send(object source, System.Timers.ElapsedEventArgs e)
            {
+            //open form 2 when countdown finishes
             if (counting == 0)
             {
                 newTimer.Enabled = false;
@@ -109,6 +108,7 @@ namespace Chat_Client_
             byte[] messageSentFromClient;
             try
             {
+                //pass name and Ip of client
                 string hostName = Dns.GetHostName(); // Retrive the Name of HOST
                 //Console.WriteLine(hostName);
                 // Get the IP
