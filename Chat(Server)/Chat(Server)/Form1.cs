@@ -39,15 +39,7 @@ namespace Chat_Server_
 
                     //Display message received from clients in server label.
                     labelShow.Text += "\r\n Client: " + str;
-
-                    if (str.ElementAt(str.IndexOf("^") + 2).Equals('1'))
-                    {
-                        Globals.P1Played = true;
-                    }
-                    if (str.ElementAt(str.IndexOf("^") + 2).Equals('2'))
-                    {
-                        Globals.P2Played = true;
-                    }
+                    Console.WriteLine("Server element after P :" + str.ElementAt(str.IndexOf("^") + 2));
 
 
                     if (Globals.players.Count < 2)
@@ -106,6 +98,15 @@ namespace Chat_Server_
                         {
                         Console.WriteLine("P1 Played tag: " + Globals.P1Played);
                         Console.WriteLine("P2 Played tag: " + Globals.P2Played);
+                        if (str.ElementAt(str.IndexOf("^") + 2).Equals('1'))
+                        {
+                            Console.WriteLine("Server element after P :" + str.ElementAt(str.IndexOf("^") + 2));
+                            Globals.P1Played = true;
+                        }
+                        if (str.ElementAt(str.IndexOf("^") + 2).Equals('2'))
+                        {
+                            Globals.P2Played = true;
+                        }
 
                         if (Globals.P1Played && Globals.P2Played)
                         {

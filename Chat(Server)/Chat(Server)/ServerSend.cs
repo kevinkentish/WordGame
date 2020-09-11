@@ -19,8 +19,8 @@ namespace Chat_Server_
             //Sending the message back
             socketSend.Send(messageSentFromServer, SocketFlags.None);
 
-            Globals.P1Played = false;
-            Globals.P2Played = false;
+            //Globals.P1Played = false;
+            //Globals.P2Played = false;
 
 
             return message;
