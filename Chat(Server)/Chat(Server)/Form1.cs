@@ -96,8 +96,7 @@ namespace Chat_Server_
                     
                     if (str.ElementAt(str.IndexOf("#") + 1).Equals('4'))
                         {
-                        Console.WriteLine("P1 Played tag: " + Globals.P1Played);
-                        Console.WriteLine("P2 Played tag: " + Globals.P2Played);
+
                         if (str.ElementAt(str.IndexOf("^") + 2).Equals('1'))
                         {
                             Console.WriteLine("Server element after P :" + str.ElementAt(str.IndexOf("^") + 2));
@@ -107,7 +106,6 @@ namespace Chat_Server_
                         {
                             Globals.P2Played = true;
                         }
-
                         if (Globals.P1Played && Globals.P2Played)
                         {
                             for (int i = 0; i < 2; i++)
