@@ -22,6 +22,8 @@ namespace Chat_Server_
             player1Score = 0;
             player2Score = 0;
             count = 0;
+            P1Played = false;
+            P2Played = false;
 
         }
     }  

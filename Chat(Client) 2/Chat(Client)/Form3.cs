@@ -75,7 +75,7 @@ namespace Chat_Client_
                     {
                         socketReceive.Close();
                         GlobalClient.ResetGlobalsClient();
-                        this.Close();
+                        this.Dispose();
                         FormClient frm = new FormClient();
                         frm.ShowDialog();                
                     }

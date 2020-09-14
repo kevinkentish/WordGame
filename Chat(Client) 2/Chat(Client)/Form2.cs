@@ -269,7 +269,6 @@ namespace Chat_Client_
                 // Get the IP
                 string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 socketSend.Connect(GlobalClient.iPEndPointSend);
-                Console.WriteLine("CLIENT : " + messageTextBox + "$" + myIP + "#" + GlobalClient.roundPlayed);
                 messageSentFromClient = Encoding.ASCII.GetBytes(messageTextBox + "$" + myIP + "#" + GlobalClient.roundPlayed+"^"+player);
                 
                 socketSend.Send(messageSentFromClient, SocketFlags.None);
